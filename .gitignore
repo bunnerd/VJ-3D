@@ -2,6 +2,7 @@ CliffyJump/Library
 CliffyJump/Logs
 CliffyJump/Temp
 CliffyJump/UserSettings
+CliffyJump/obj
 *.sln
 *.csproj
 .vsconfig
