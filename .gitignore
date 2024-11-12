@@ -5,3 +5,5 @@ CliffyJump/UserSettings
 *.sln
 *.csproj
 .vsconfig
+UpgradeLog.htm
+.vs
