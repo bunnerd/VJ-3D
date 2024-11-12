@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab272cab4efd9834792a0cc2ec4905f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpSpeed: 10
+  jumpSpeed: 20
 --- !u!114 &197659143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  gravity: 20
+  gravity: 60
 --- !u!143 &197659144
 CharacterController:
   m_ObjectHideFlags: 0
@@ -290,13 +290,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 197659133}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7266831b9dac5c543a7bed740d0cc24d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: 0
-  speed: 3
+  speed: 6
 --- !u!1 &300224344
 GameObject:
   m_ObjectHideFlags: 0
