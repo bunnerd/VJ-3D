@@ -48,7 +48,7 @@ public class Gravity : MonoBehaviour
 
 	void OnControllerColliderHit(ControllerColliderHit hit)
 	{
-        if (!isGrounded) 
+		if (!isGrounded) 
         {
 			Debug.Log("Hit " + hit.gameObject.name);
 			isGrounded = true;

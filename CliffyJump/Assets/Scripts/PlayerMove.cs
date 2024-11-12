@@ -48,7 +48,7 @@ public class PlayerMove : MonoBehaviour
 		controller.Move(moveVectors[(int)orientation] * speed * Time.fixedDeltaTime);
 	}
 
-	private void TurnLeft() 
+	public void TurnLeft() 
     {
 		Debug.Log("Turning left");
 		// Rotate model
@@ -74,7 +74,7 @@ public class PlayerMove : MonoBehaviour
 		}
 	}
 
-    private void TurnRight() 
+    public void TurnRight() 
     {
         Debug.Log("Turning right");
         // Rotate model
