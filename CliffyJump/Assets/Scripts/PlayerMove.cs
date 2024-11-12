@@ -23,10 +23,10 @@ public class PlayerMove : MonoBehaviour
 
 		moveVectors = new Vector3[]
 		{
-			new (0f, 0f, speed),
-			new (speed, 0f, 0f),
-			new (0f, 0f, -speed),
-			new (-speed, 0f, 0f)
+			new (0f, 0f, 1f),
+			new (1f, 0f, 0f),
+			new (0f, 0f, -1f),
+			new (-1f, 0f, 0f)
 		};
 	}
 
@@ -45,7 +45,7 @@ public class PlayerMove : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate()
 	{
-		controller.Move(moveVectors[(int)orientation] * Time.fixedDeltaTime);
+		controller.Move(moveVectors[(int)orientation] * speed * Time.fixedDeltaTime);
 	}
 
 	private void TurnLeft() 
