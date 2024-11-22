@@ -52,7 +52,7 @@ public class PlayerMove : MonoBehaviour
     {
 		Debug.Log("Turning left");
 		// Rotate model
-		transform.Rotate(new Vector3(0f, 1f, 0f), 90f);
+		transform.Rotate(new Vector3(0f, 1f, 0f), -90f);
 
 		switch (orientation)
 		{
@@ -78,7 +78,7 @@ public class PlayerMove : MonoBehaviour
     {
         Debug.Log("Turning right");
         // Rotate model
-        transform.Rotate(new Vector3(0f, 1f, 0f), -90f);
+        transform.Rotate(new Vector3(0f, 1f, 0f), 90f);
 
         switch (orientation) 
         {
