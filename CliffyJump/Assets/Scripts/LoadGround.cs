@@ -25,16 +25,24 @@ public class LoadGround : MonoBehaviour
     {
         if (raiseGround && !lowerGround)
         {
-            float t = (Time.time - startTime) / duration;
-            float newY = startHeight + animCurve.Evaluate(t) * (endHeight - startHeight);
-            for (int i = 0; i < columns.Length; ++i)
-            {
-                columns[i].transform.position = new Vector3(columns[i].transform.position.x, newY, columns[i].transform.position.z);
-            }
             if (Time.time - startTime > duration)
             {
+                // Make sure the height of the object is exactly endHeight
                 Debug.Log("end height reached!");
                 raiseGround = false;
+                for (int i = 0; i < columns.Length; ++i)
+                {
+                    columns[i].transform.position = new Vector3(columns[i].transform.position.x, endHeight, columns[i].transform.position.z);
+                }
+            }
+            else
+            {
+                float t = (Time.time - startTime) / duration;
+                float newY = startHeight + animCurve.Evaluate(t) * (endHeight - startHeight);
+                for (int i = 0; i < columns.Length; ++i)
+                {
+                    columns[i].transform.position = new Vector3(columns[i].transform.position.x, newY, columns[i].transform.position.z);
+                }
             }
         }
         else
@@ -46,7 +54,7 @@ public class LoadGround : MonoBehaviour
             }
             if (lowerGround)
             {
-                float t = duration - (Time.time - startTime) / duration;
+                float t = 1.0f - (Time.time - startTime) / duration;
                 float newY = startHeight + animCurve.Evaluate(t) * (endHeight - startHeight);
                 for (int i = 0; i < columns.Length; ++i)
                 {
