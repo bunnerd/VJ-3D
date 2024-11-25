@@ -8,14 +8,12 @@ public class Gravity : MonoBehaviour
     private bool isGrounded = false;
     private CharacterController c;
 
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         c = GetComponent<CharacterController>();
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
 		speed -= gravity * Time.fixedDeltaTime;

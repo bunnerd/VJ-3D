@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngineInternal;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -6,6 +7,11 @@ public class PlayerMove : MonoBehaviour
 
     public Orientation orientation = Orientation.Forward;
     public float speed;
+
+	public LayerMask layer;
+
+	private bool collidedWithTrigger = false;
+
     public enum Orientation 
     {
         Forward = 0, 
@@ -20,6 +26,7 @@ public class PlayerMove : MonoBehaviour
 	void Start()
 	{
 		controller = GetComponent<CharacterController>();
+		collidedWithTrigger = false;
 
 		moveVectors = new Vector3[]
 		{
@@ -40,17 +47,80 @@ public class PlayerMove : MonoBehaviour
 		{
 			TurnLeft();
 		}
+		else if (Input.GetKeyDown(KeyCode.P)) 
+		{
+			Debug.Log(transform.position - new Vector3(0.0f, transform.lossyScale.y / 2, 0.0f));
+		}
 	}
 
 	// Update is called once per frame
 	void FixedUpdate()
 	{
-		controller.Move(moveVectors[(int)orientation] * speed * Time.fixedDeltaTime);
+		Vector3 movement = speed * Time.fixedDeltaTime * moveVectors[(int)orientation];
+
+		Vector3 nextPosition = transform.position + movement;
+		Collider[] collisions = Physics.OverlapSphere(nextPosition, 1, layer);
+
+		if (collisions.Length > 1) 
+		{
+			Debug.LogError("More than one obstacle collision?");
+		}
+
+		bool collided = collisions.Length > 0;
+
+		if (!collidedWithTrigger && collided)
+		{
+			collidedWithTrigger = true;
+			foreach (Collider hit in collisions)
+			{
+				TurnPoint turnPoint = hit.gameObject.GetComponent<TurnPoint>();
+				if (turnPoint.turns[turnPoint.currentTurn] == TurnPoint.Turn.None) 
+				{
+					if (++turnPoint.currentTurn >= turnPoint.turns.Length)
+					{
+						turnPoint.currentTurn = 0;
+					}
+					continue;
+				}
+
+				Vector3 playerToCollider = turnPoint.centerPos - transform.position;
+				movement = new Vector3(playerToCollider.x, 0.0f, playerToCollider.z);
+				switch (turnPoint.turns[turnPoint.currentTurn])
+				{
+					case TurnPoint.Turn.Left:
+					{ 
+						TurnLeft();
+						if (++turnPoint.currentTurn >= turnPoint.turns.Length)
+						{
+							turnPoint.currentTurn = 0;
+						}
+						break;
+					}
+					case TurnPoint.Turn.Right: 
+					{
+						TurnRight();
+						if (++turnPoint.currentTurn >= turnPoint.turns.Length)
+						{
+							turnPoint.currentTurn = 0;
+						}
+						break;
+					}
+					default:
+						break;
+						
+				}
+			}
+		}
+		else if (collidedWithTrigger && !collided) 
+		{
+			collidedWithTrigger = false;
+		}
+
+		controller.Move(movement);
 	}
 
 	public void TurnLeft() 
     {
-		Debug.Log("Turning left");
 		// Rotate model
 		transform.Rotate(new Vector3(0f, 1f, 0f), -90f);
 
@@ -76,7 +146,6 @@ public class PlayerMove : MonoBehaviour
 
     public void TurnRight() 
     {
-        Debug.Log("Turning right");
         // Rotate model
         transform.Rotate(new Vector3(0f, 1f, 0f), 90f);
 

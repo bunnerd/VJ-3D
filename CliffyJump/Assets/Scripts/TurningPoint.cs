@@ -3,33 +3,22 @@ using UnityEngine;
 public class TurnPoint : MonoBehaviour
 {
     public PlayerMove player;
-    public Turn turn;
+    public Turn[] turns;
+    public int currentTurn = 0;
+
+    public Vector3 centerPos;
 
     public enum Turn 
     {
         Left,
-        Right
+        Right,
+        None
     }
-
-    private bool touchedPlayer;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        touchedPlayer = false;
+        currentTurn = 0;
+        centerPos = transform.position + new Vector3(0, transform.lossyScale.y / 2, 0);
     }
-
-	private void OnTriggerEnter(Collider other)
-	{
-        if (!touchedPlayer && other.gameObject.CompareTag("Player")) 
-        {
-            Debug.Log("Player hit!");
-            touchedPlayer = true;
-
-            if (turn == Turn.Left)
-                player.TurnLeft();
-            else if (turn == Turn.Right)
-                player.TurnRight();
-        }
-	}
 }
