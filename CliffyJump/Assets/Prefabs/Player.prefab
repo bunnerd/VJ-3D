@@ -216,6 +216,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: 0
   speed: 12
+  layer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!95 &1434611842253588895
 Animator:
   serializedVersion: 7
