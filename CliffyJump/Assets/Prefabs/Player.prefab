@@ -216,9 +216,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: 0
   speed: 12
-  layer:
+  turnLayer:
     serializedVersion: 2
     m_Bits: 64
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  stopLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  stopped: 0
 --- !u!95 &1434611842253588895
 Animator:
   serializedVersion: 7
