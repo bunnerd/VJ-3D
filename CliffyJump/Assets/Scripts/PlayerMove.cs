@@ -191,9 +191,10 @@ public class PlayerMove : MonoBehaviour
 
 	private void CheckCollisionWithObstacle(Vector3 nextPosition) 
 	{
-		Collider[] collisions = Physics.OverlapSphere(nextPosition, size, obstacleLayer);
+		Collider[] collisions = Physics.OverlapSphere(nextPosition, size/2, obstacleLayer);
 		if (collisions.Length > 0) 
 		{
+			Debug.Log("Pos: " + transform.position + ", nextPos: " + nextPosition + " ObsPos: " + collisions[0].transform.position);
 			Die();
 		}
 	}
