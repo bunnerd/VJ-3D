@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class TurnPoint : MonoBehaviour
 {
-    public PlayerMove player;
     public Turn[] turns;
     public int currentTurn = 0;
 

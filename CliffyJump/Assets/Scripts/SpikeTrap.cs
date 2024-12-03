@@ -19,8 +19,11 @@ public class SpikeTrap : MonoBehaviour
 	void Start()
     {
         startY = transform.position.y;
-        endY = startY + 1.0f;
-        movedOnce = false;
+        endY = startY + 2.0f;
+
+		Debug.Log("Start: " + startY + ", End: " + endY);
+
+		movedOnce = false;
         moving = false;
         start = Time.time;
     }
@@ -68,7 +71,7 @@ public class SpikeTrap : MonoBehaviour
 
         float posX = transform.position.x;
         float posZ = transform.position.z;
-        transform.position = new Vector3(posX, (startY + curveY) * (endY - startY), posZ);
+        transform.position = new Vector3(posX, startY + curveY * (endY - startY), posZ);
 	}
 
     void StopMovement() 
