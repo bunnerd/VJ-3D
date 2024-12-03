@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  gravity: 60
+  gravity: 100
 --- !u!114 &7546249684697994857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab272cab4efd9834792a0cc2ec4905f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpSpeed: 20
+  jumpSpeed: 28
   sound: {fileID: 3453391100008015619}
 --- !u!143 &1589454661620946310
 CharacterController:
