@@ -219,7 +219,7 @@ public class PlayerMove : MonoBehaviour
 			Vector3 movement = collisions[0].gameObject.transform.position - transform.position;
 			Debug.Log(movement);
 			controller.Move(new Vector3(movement.x, 0.0f, movement.z));
-			GetComponent<Animator>().enabled = false;
+			GetComponent<Animator>().SetTrigger("stop");
 		}
 		else if (collisions.Length == 0 && collidedWithStopPoint) 
 		{

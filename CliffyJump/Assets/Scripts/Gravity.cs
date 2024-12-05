@@ -50,6 +50,7 @@ public class Gravity : MonoBehaviour
         {
 			Debug.Log("Hit " + hit.gameObject.name);
 			isGrounded = true;
+            GetComponent<Animator>().SetTrigger("move");
         }
 	}   
 }

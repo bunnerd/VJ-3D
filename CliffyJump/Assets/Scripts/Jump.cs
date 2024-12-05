@@ -30,7 +30,7 @@ public class Jump : MonoBehaviour
         {
             // Move again
             playerMove.stopped = false;
-            GetComponent<Animator>().enabled = true;
+            GetComponent<Animator>().SetTrigger("move");
         }
         else 
         {
@@ -38,6 +38,7 @@ public class Jump : MonoBehaviour
 			Debug.Log("Jump");
 			gravity.speed = jumpSpeed;
             sound.Play();
+            GetComponent<Animator>().SetTrigger("jump");
 		}
 	}
 }
