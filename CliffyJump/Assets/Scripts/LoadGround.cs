@@ -64,4 +64,15 @@ public class LoadGround : MonoBehaviour
             }
         }
     }
+
+    // It should probably do more than this
+    public void RaiseGround()
+    {
+        raiseGround = true;
+    }
+    
+    public void LowerGround()
+    {
+        lowerGround = true;
+    }
 }
