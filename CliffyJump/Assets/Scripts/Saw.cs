@@ -50,7 +50,9 @@ public class Saw : MonoBehaviour
             going = !going;
         }
 
+        float direction = going ? 1.0f : -1.0f;
+
 		transform.position = startPos + startToEnd * st;
-        transform.Rotate(0.0f, rotationSpeed * Time.fixedDeltaTime, 0.0f);
+        transform.Rotate(0.0f, 0.0f, direction * rotationSpeed * Time.fixedDeltaTime);
     }
 }
