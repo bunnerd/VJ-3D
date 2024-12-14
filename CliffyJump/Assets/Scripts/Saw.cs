@@ -9,9 +9,11 @@ public class Saw : MonoBehaviour
 
     public float offset;
     public float duration;
+    public float stopDuration;
     float start;
 
     bool going = true;
+    bool stopped = false;
 
 	public float rotationSpeed;
     public enum Rotation 
@@ -36,7 +38,20 @@ public class Saw : MonoBehaviour
 
     void FixedUpdate()
     {
-        float t = (Time.time - start) / duration;
+		if (stopped)
+		{
+            if (Time.time - start > stopDuration)
+            {
+                start = Time.time;
+                stopped = false;
+                going = !going;
+            }
+            else 
+            {
+                return;
+            }
+		}
+		float t = (Time.time - start) / duration;
 
 		float st;
 		if (going)
@@ -47,7 +62,7 @@ public class Saw : MonoBehaviour
 		if (t >= 1.0f) 
         {
             start = Time.time;
-            going = !going;
+            stopped = true;
         }
 
         float direction = going ? 1.0f : -1.0f;
