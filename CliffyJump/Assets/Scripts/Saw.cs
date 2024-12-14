@@ -12,8 +12,8 @@ public class Saw : MonoBehaviour
     public float stopDuration;
     float start;
 
-    bool going = true;
-    bool stopped = false;
+    bool going = false;
+    bool stopped = true;
 
 	public float rotationSpeed;
     public enum Rotation 
@@ -28,7 +28,11 @@ public class Saw : MonoBehaviour
         startPos = transform.position;
         endPos = transform.GetChild(0).position;
         startToEnd = endPos - startPos;
-        going = true;
+        going = false;
+
+        float aux = stopDuration;
+        stopDuration = offset;
+        offset = aux;
 
         if (rotation == Rotation.Counterclockwise)
             rotationSpeed *= -1;
@@ -45,6 +49,9 @@ public class Saw : MonoBehaviour
                 start = Time.time;
                 stopped = false;
                 going = !going;
+
+                if (offset != stopDuration)
+                    stopDuration = offset;
             }
             else 
             {
