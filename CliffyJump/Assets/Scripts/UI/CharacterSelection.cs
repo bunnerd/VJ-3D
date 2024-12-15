@@ -49,7 +49,7 @@ public class CharacterSelection : MonoBehaviour
 
     private void RightArrowPressed()
     {
-        if (charIndex < numCharacters-1)
+        if (charIndex < numCharacters-1 && changingPos == false)
         {
             direction = -1;
             changingPos = true;
@@ -59,7 +59,7 @@ public class CharacterSelection : MonoBehaviour
     }
     private void LeftArrowPressed()
     {
-        if (charIndex > 0)
+        if (charIndex > 0 && changingPos == false)
         {
             direction = 1;
             changingPos = true;
