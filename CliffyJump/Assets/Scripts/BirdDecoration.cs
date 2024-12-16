@@ -4,22 +4,34 @@ using UnityEngine;
 public class BirdDecoration : MonoBehaviour
 {
     Animator animator;
+    bool hasFlown = false;
 
     void Start()
     {
         animator = GetComponent<Animator>();
+        StartCoroutine(IdleAnimationLoop());
     }
 
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        if (Input.GetKey(KeyCode.F))
+        StartCoroutine(Fly());
+    }
+
+    private IEnumerator IdleAnimationLoop()
+    {
+        while (!hasFlown)
         {
-            animator.SetTrigger("fly");
-            
+            yield return new WaitForSeconds(Random.Range(1f, 2f));
+            if (!hasFlown)
+                animator.SetTrigger("eat");
         }
-        else if (Input.GetKey(KeyCode.E))
-        {
-            animator.SetTrigger("eat");
-        }
+    }
+
+    private IEnumerator Fly()
+    {
+        hasFlown = true;
+        animator.SetTrigger("fly");
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
+        gameObject.SetActive(false);
     }
 }
