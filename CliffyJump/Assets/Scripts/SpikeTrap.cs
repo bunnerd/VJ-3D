@@ -21,8 +21,6 @@ public class SpikeTrap : MonoBehaviour
         startY = transform.position.y;
         endY = startY + 2.0f;
 
-		Debug.Log("Start: " + startY + ", End: " + endY);
-
 		movedOnce = false;
         moving = false;
         start = Time.time;
