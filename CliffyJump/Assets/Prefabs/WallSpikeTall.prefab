@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6386663817334074496}
   - component: {fileID: 3220133555996651493}
+  - component: {fileID: -2244501570834476902}
   m_Layer: 3
   m_Name: WallSpikeTall
   m_TagString: Untagged
@@ -54,6 +55,54 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.6, y: 1.4, z: 0.8}
   m_Center: {x: 0, y: 0.7, z: 0.8}
+--- !u!114 &-2244501570834476902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20573024988076123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 652631f3b6646fa4faec9ebc5d56584f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.91624004
+      value: 1.0957854
+      inSlope: -0.33243915
+      outSlope: -0.33243915
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 1
+    - serializedVersion: 3
+      time: 1
+      value: 0.9977007
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  startScale: 0
+  endScale: 1.25
+  duration: 0.4
 --- !u!1001 &6814862982230082806
 PrefabInstance:
   m_ObjectHideFlags: 0
