@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8466969355740980082}
   - component: {fileID: 4577828958879234779}
   - component: {fileID: 4211736438243590256}
+  - component: {fileID: 3006899589400572337}
   m_Layer: 7
   m_Name: StopPoint
   m_TagString: Untagged
@@ -68,6 +69,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cb9ee1c12463ca4583566b14375e6af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3006899589400572337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889737745033101472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 652631f3b6646fa4faec9ebc5d56584f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.91624004
+      value: 1.0957854
+      inSlope: -0.33243915
+      outSlope: -0.33243915
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 1
+    - serializedVersion: 3
+      time: 1
+      value: 0.9977007
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  startScale: 0
+  endScale: 1
+  duration: 0.4
 --- !u!1001 &619154271164775269
 PrefabInstance:
   m_ObjectHideFlags: 0

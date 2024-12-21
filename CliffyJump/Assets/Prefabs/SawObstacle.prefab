@@ -11,11 +11,10 @@ GameObject:
   - component: {fileID: 5942425691014786367}
   - component: {fileID: 470492952243612609}
   - component: {fileID: 626960609257685990}
-  - component: {fileID: 647517954488586459}
   - component: {fileID: 977443739552635136}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: SawObstacle
-  m_TagString: Untagged
+  m_TagString: Saw
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,27 +89,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &647517954488586459
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1635409924878136668}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.162256, y: 1.0585928, z: 0.18613423}
-  m_Center: {x: 0.004040271, y: 0.029296398, z: 0.010456428}
 --- !u!114 &977443739552635136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,11 +266,95 @@ PrefabInstance:
       propertyPath: m_Name
       value: Saw
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 37d325fa4eaee874a819e69d2500df7b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 37d325fa4eaee874a819e69d2500df7b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3157648660329042964}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 37d325fa4eaee874a819e69d2500df7b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5019127675459841634}
   m_SourcePrefab: {fileID: 100100000, guid: 37d325fa4eaee874a819e69d2500df7b, type: 3}
+--- !u!1 &2562991193132837692 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 37d325fa4eaee874a819e69d2500df7b, type: 3}
+  m_PrefabInstance: {fileID: 3409501139231446637}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &3157648660329042964
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2562991193132837692}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.20566936, y: 1, z: 1}
+  m_Center: {x: -0.0018503815, y: 0, z: -1.4600664e-18}
+--- !u!114 &5019127675459841634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2562991193132837692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 652631f3b6646fa4faec9ebc5d56584f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.91624004
+      value: 1.0957854
+      inSlope: -0.33243915
+      outSlope: -0.33243915
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 1
+    - serializedVersion: 3
+      time: 1
+      value: 0.9977007
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  startScale: 0
+  endScale: 1
+  duration: 0.4
 --- !u!4 &2943738173640110470 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 37d325fa4eaee874a819e69d2500df7b, type: 3}

@@ -48,7 +48,6 @@ public class Gravity : MonoBehaviour
 	{
 		if (!isGrounded) 
         {
-			Debug.Log("Hit " + hit.gameObject.name);
 			isGrounded = true;
             GetComponent<Animator>().SetTrigger("move");
         }
