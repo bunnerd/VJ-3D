@@ -18,29 +18,7 @@ public class Screen : MonoBehaviour
 
     void Start()
     {
-		List<GameObject> tmp = new List<GameObject>();
-        foreach (Transform child in GetComponentsInChildren<Transform>())
-            // Gets objects in the Obstacle (3) layer. Extra checks are to ensure the prefab's children aren't added
-            if (child.gameObject.layer == 3 && child.parent != null && child.parent.gameObject.layer != 3)
-                tmp.Add(child.gameObject);
-            // Gets objects in the StopPoint (7) layer. 
-            else if (child.gameObject.layer == 7 && child.parent != null && child.parent.gameObject.layer != 7)
-                tmp.Add(child.gameObject);
-            else if (child.gameObject.CompareTag("Saw")) 
-            {
-                saws.Add(child.gameObject);
-				child.gameObject.SetActive(false);
-			}
-
-		obstacles = tmp.ToArray();
-        foreach (GameObject obstacle in obstacles)
-            obstacle.SetActive(false);
-
-        player.GetComponent<PlayerMove>().enabled = false;
-
-		StartCoroutine(RaiseGround());
-        StartCoroutine(SpawnObstacles());
-        StartCoroutine(EnablePlayer());
+        Load();
     }
 
     void Update()
@@ -50,6 +28,41 @@ public class Screen : MonoBehaviour
             StartCoroutine(LowerGround());
         }
     }
+
+    public void Load() 
+    {
+        transform.gameObject.SetActive(true);
+
+		List<GameObject> tmp = new List<GameObject>();
+		foreach (Transform child in GetComponentsInChildren<Transform>())
+			// Gets objects in the Obstacle (3) layer. Extra checks are to ensure the prefab's children aren't added
+			if (child.gameObject.layer == 3 && child.parent != null && child.parent.gameObject.layer != 3)
+				tmp.Add(child.gameObject);
+			// Gets objects in the StopPoint (7) layer. 
+			else if (child.gameObject.layer == 7 && child.parent != null && child.parent.gameObject.layer != 7)
+				tmp.Add(child.gameObject);
+			else if (child.gameObject.CompareTag("Saw"))
+			{
+				saws.Add(child.gameObject);
+				child.gameObject.SetActive(false);
+			}
+
+		obstacles = tmp.ToArray();
+		foreach (GameObject obstacle in obstacles)
+			obstacle.SetActive(false);
+
+		player.GetComponent<PlayerMove>().enabled = false;
+
+		StartCoroutine(RaiseGround());
+		StartCoroutine(SpawnObstacles());
+		StartCoroutine(EnablePlayer());
+	}
+
+    public void Unload() 
+    {
+		StartCoroutine(DespawnObstacles());
+		StartCoroutine(LowerGround());
+	}
 
     public IEnumerator RaiseGround()
     {
@@ -76,6 +89,8 @@ public class Screen : MonoBehaviour
 
     public IEnumerator LowerGround()
     {
+        yield return new WaitForSeconds(0.4f);
+
         float startTime = Time.time;
         while (Time.time - startTime <= duration)
         {
@@ -87,7 +102,9 @@ public class Screen : MonoBehaviour
             }
             yield return new WaitForEndOfFrame();
         }
-    }
+
+		transform.gameObject.SetActive(false);
+	}
 
     public IEnumerator SpawnObstacles() 
     {
@@ -105,6 +122,17 @@ public class Screen : MonoBehaviour
         }
         yield return null;
     }
+
+    public IEnumerator DespawnObstacles() 
+    {
+		Debug.Log("Despawn obstacles!");
+
+		foreach (GameObject obstacle in obstacles)
+		{
+			StartCoroutine(obstacle.GetComponent<ObstacleManager>().UnloadObstacle());
+		}
+		yield return null;
+	}
 
     public IEnumerator EnablePlayer() 
     {

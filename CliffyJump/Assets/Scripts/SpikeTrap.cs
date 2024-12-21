@@ -12,23 +12,25 @@ public class SpikeTrap : MonoBehaviour
     private float startY;
     private float endY;
 
+    bool first = true;
     bool movedOnce = false;
     bool moving = false;
 
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
     {
-        startY = transform.position.y;
-        endY = startY + 2.0f;
-
-		movedOnce = false;
-        moving = false;
-        start = Time.time;
+        Init();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (first) 
+        {
+            first = false;
+			Init();
+		}
+
         if (!movedOnce)
         {
             if (Time.time - start >= offset)
@@ -49,6 +51,16 @@ public class SpikeTrap : MonoBehaviour
             }
         }
     }
+
+    void Init() 
+    {
+		startY = transform.position.y;
+		endY = startY + 2.0f;
+
+		movedOnce = false;
+		moving = false;
+		start = Time.time;
+	}
 
     void StartMovement() 
     {

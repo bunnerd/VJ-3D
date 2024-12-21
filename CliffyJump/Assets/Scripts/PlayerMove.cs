@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngineInternal;
@@ -18,6 +19,7 @@ public class PlayerMove : MonoBehaviour
 
 	public bool stopped = false;
 	private bool collidedWithStopPoint = false;
+	private bool teleporting = false;
 
     public enum Orientation 
     {
@@ -76,7 +78,27 @@ public class PlayerMove : MonoBehaviour
 		CheckCollisionWithObstacle(nextPosition);
 		CheckCollisionWithTurnPoint(nextPosition, ref movement);
 
-		controller.Move(movement);
+		if (!teleporting)
+			controller.Move(movement);
+	}
+
+	public void Teleport(Vector3 position) 
+	{
+		teleporting = true;
+		StartCoroutine(TeleportHelper(position));
+	}
+
+	private IEnumerator TeleportHelper(Vector3 position) 
+	{
+		int counter = 0;
+
+		while (++counter < 3) 
+		{
+			Debug.Log("Looping");
+			transform.position = position;
+			yield return new WaitForEndOfFrame();
+		}
+		teleporting = false;
 	}
 
 	public void TurnLeft() 

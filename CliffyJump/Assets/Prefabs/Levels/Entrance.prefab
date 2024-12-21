@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3870047451156065494}
+  - component: {fileID: 9108739400527740956}
   m_Layer: 0
   m_Name: Entrance
   m_TagString: Ground
@@ -37,6 +38,19 @@ Transform:
   - {fileID: 7506935571824852807}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9108739400527740956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8570170044153508660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70f234d55d928ef41af8e4c503fc0793, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  first: {fileID: 1994601436263604483}
 --- !u!1001 &581660909533952060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -404,6 +418,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42610807f0cc5c647adba52f5881df1d, type: 3}
+--- !u!1 &1994601436263604483 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4968973325667584146, guid: 42610807f0cc5c647adba52f5881df1d, type: 3}
+  m_PrefabInstance: {fileID: 6871201764653607313}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7506935571824852807 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3996548538089215702, guid: 42610807f0cc5c647adba52f5881df1d, type: 3}

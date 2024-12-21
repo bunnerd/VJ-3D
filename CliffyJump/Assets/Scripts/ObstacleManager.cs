@@ -44,4 +44,18 @@ public class ObstacleManager : MonoBehaviour
         }
         transform.localScale = new Vector3(scaleX * endScale, endScale, scaleZ * endScale);
     }
+
+	public IEnumerator UnloadObstacle()
+	{
+		float startTime = Time.time;
+
+		while (Time.time - startTime <= duration)
+		{
+			float t = (Time.time - startTime) / duration;
+			float scale = startScale + animationCurve.Evaluate(1-t) * (endScale - startScale);
+			transform.localScale = new Vector3(scaleX * scale, scale, scaleZ * scale);
+			yield return new WaitForEndOfFrame();
+		}
+		transform.localScale = new Vector3(scaleX * endScale, endScale, scaleZ * endScale);
+	}
 }
