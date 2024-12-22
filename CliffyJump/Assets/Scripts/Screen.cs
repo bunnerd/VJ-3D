@@ -16,11 +16,6 @@ public class Screen : MonoBehaviour
 
     private List<GameObject> saws = new List<GameObject>();
 
-    void Start()
-    {
-        Load();
-    }
-
     void Update()
     {
         if (Input.GetKey(KeyCode.Alpha0))
@@ -32,26 +27,29 @@ public class Screen : MonoBehaviour
     public void Load() 
     {
         transform.gameObject.SetActive(true);
+		saws = new List<GameObject>();
 
 		List<GameObject> tmp = new List<GameObject>();
-		foreach (Transform child in GetComponentsInChildren<Transform>())
-			// Gets objects in the Obstacle (3) layer. Extra checks are to ensure the prefab's children aren't added
-			if (child.gameObject.layer == 3 && child.parent != null && child.parent.gameObject.layer != 3)
-				tmp.Add(child.gameObject);
-			// Gets objects in the StopPoint (7) layer. 
-			else if (child.gameObject.layer == 7 && child.parent != null && child.parent.gameObject.layer != 7)
-				tmp.Add(child.gameObject);
-			else if (child.gameObject.CompareTag("Saw"))
-			{
-				saws.Add(child.gameObject);
-				child.gameObject.SetActive(false);
-			}
+        foreach (Transform child in GetComponentsInChildren<Transform>())
+        {
+            // Gets objects in the Obstacle (3) layer. Extra checks are to ensure the prefab's children aren't added
+            if (child.gameObject.layer == 3 && child.parent != null && child.parent.gameObject.layer != 3)
+                tmp.Add(child.gameObject);
+            // Gets objects in the StopPoint (7) layer. 
+            else if (child.gameObject.layer == 7 && child.parent != null && child.parent.gameObject.layer != 7)
+                tmp.Add(child.gameObject);
+            else if (child.gameObject.CompareTag("Saw"))
+            {
+                saws.Add(child.gameObject);
+                child.gameObject.SetActive(false);
+            }
+        }
 
 		obstacles = tmp.ToArray();
 		foreach (GameObject obstacle in obstacles)
 			obstacle.SetActive(false);
 
-		player.GetComponent<PlayerMove>().enabled = false;
+        player.GetComponent<PlayerMove>().FullStop();
 
 		StartCoroutine(RaiseGround());
 		StartCoroutine(SpawnObstacles());
@@ -108,13 +106,14 @@ public class Screen : MonoBehaviour
 
     public IEnumerator SpawnObstacles() 
     {
+        // Waits until RaiseGround() has finished
         yield return new WaitForSeconds(0.75f);
 
-        Debug.Log("Spawn obstacles!");
-
+        // Special case for the saw obstacle
         foreach (GameObject saw in saws)
             saw.SetActive(true);
 
+        // Load animation for all obstacles (and stop points)
 		foreach (GameObject obstacle in obstacles) 
         {
             obstacle.SetActive(true);
@@ -125,8 +124,6 @@ public class Screen : MonoBehaviour
 
     public IEnumerator DespawnObstacles() 
     {
-		Debug.Log("Despawn obstacles!");
-
 		foreach (GameObject obstacle in obstacles)
 		{
 			StartCoroutine(obstacle.GetComponent<ObstacleManager>().UnloadObstacle());
@@ -137,7 +134,7 @@ public class Screen : MonoBehaviour
     public IEnumerator EnablePlayer() 
     {
         yield return new WaitForSeconds(1.15f);
-        player.GetComponent<PlayerMove>().enabled = true;
+		player.GetComponent<PlayerMove>().EnableMove();
         yield return null;
     }
 }

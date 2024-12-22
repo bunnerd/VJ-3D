@@ -18,6 +18,7 @@ public class PlayerMove : MonoBehaviour
 
 	private bool collidedWithTrigger = false;
 
+	private bool fullStopped = false;
 	public bool stopped = false;
 	private bool collidedWithStopPoint = false;
 	private bool teleporting = false;
@@ -68,6 +69,8 @@ public class PlayerMove : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate()
 	{
+		if (fullStopped)
+			return;
 
 		Vector3 movement = speed * Time.fixedDeltaTime * moveVectors[(int)orientation];
 		Vector3 nextPosition = transform.position + movement;
@@ -92,6 +95,7 @@ public class PlayerMove : MonoBehaviour
 	private IEnumerator TeleportHelper(Vector3 position) 
 	{
 		int counter = 0;
+		GetComponentInChildren<TrailRenderer>().enabled = false;
 
 		while (++counter < 3) 
 		{
@@ -100,6 +104,21 @@ public class PlayerMove : MonoBehaviour
 			yield return new WaitForEndOfFrame();
 		}
 		teleporting = false;
+
+		GetComponentInChildren<TrailRenderer>().Clear();
+		GetComponentInChildren<TrailRenderer>().enabled = true;
+	}
+
+	public void FullStop() 
+	{
+		fullStopped = true;
+		transform.gameObject.GetComponent<Gravity>().fullStopped = true;
+	}
+
+	public void EnableMove()
+	{
+		fullStopped = false;
+		transform.gameObject.GetComponent<Gravity>().fullStopped = false;
 	}
 
 	public void TurnLeft() 

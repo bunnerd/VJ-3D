@@ -5,6 +5,7 @@ public class Gravity : MonoBehaviour
     public float speed;
     public float gravity;
 
+    public bool fullStopped = false;
     private bool isGrounded = false;
     private CharacterController c;
 
@@ -12,10 +13,14 @@ public class Gravity : MonoBehaviour
     void Start()
     {
         c = GetComponent<CharacterController>();
-    }
+		fullStopped = false;
+	}
 
     void FixedUpdate()
     {
+        if (fullStopped)
+            return;
+
 		speed -= gravity * Time.fixedDeltaTime;
 		CollisionFlags flags = c.Move(new Vector3(0f, speed * Time.fixedDeltaTime, 0f));
 

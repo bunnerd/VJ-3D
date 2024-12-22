@@ -23,9 +23,7 @@ public class LevelExit : MonoBehaviour
 	{
         if (other.gameObject.CompareTag("Player")) 
         {
-            Debug.Log("Trigger enter!!!!!!");
-
-            player.GetComponent<PlayerMove>().enabled = false;
+            player.GetComponent<PlayerMove>().FullStop();
             Debug.Log("Player pos pre TP: " + player.transform.position);
             player.GetComponent<PlayerMove>().Teleport(entrance.GetComponent<LevelEntrance>().GetStartPosition());
 			Debug.Log("Player pos post TP: " + player.transform.position);

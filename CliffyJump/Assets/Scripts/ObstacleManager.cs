@@ -56,6 +56,6 @@ public class ObstacleManager : MonoBehaviour
 			transform.localScale = new Vector3(scaleX * scale, scale, scaleZ * scale);
 			yield return new WaitForEndOfFrame();
 		}
-		transform.localScale = new Vector3(scaleX * endScale, endScale, scaleZ * endScale);
+		transform.localScale = new Vector3(scaleX * startScale, startScale, scaleZ * startScale);
 	}
 }
