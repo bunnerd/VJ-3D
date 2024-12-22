@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 5282110480757896353}
   - component: {fileID: 1434611842253588895}
   - component: {fileID: 3453391100008015619}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab272cab4efd9834792a0cc2ec4905f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpSpeed: 28
+  jumpSpeed: 25
   sound: {fileID: 3453391100008015619}
 --- !u!143 &1589454661620946310
 CharacterController:
