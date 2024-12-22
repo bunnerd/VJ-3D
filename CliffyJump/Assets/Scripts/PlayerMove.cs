@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem.Processors;
 using UnityEngine.SceneManagement;
 using UnityEngineInternal;
 
@@ -20,7 +21,7 @@ public class PlayerMove : MonoBehaviour
 	public bool stopped = false;
 	private bool collidedWithStopPoint = false;
 	private bool teleporting = false;
-
+	private bool dead = false;
     public enum Orientation 
     {
         Forward = 0, 
@@ -214,14 +215,18 @@ public class PlayerMove : MonoBehaviour
 	private void CheckCollisionWithObstacle(Vector3 nextPosition) 
 	{
 		Collider[] collisions = Physics.OverlapSphere(nextPosition, size/2, obstacleLayer);
-		if (collisions.Length > 0) 
+		if (collisions.Length > 0 && !dead) 
 		{
-			Die();
+			StartCoroutine(Die());
 		}
 	}
 
-	private void Die() 
+	private IEnumerator Die() 
 	{
+		dead = true;
+		transform.Find("Cat").gameObject.SetActive(false);
+		GetComponentInChildren<ParticleSystem>().Play();
+		yield return new WaitForSeconds(3f);
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
