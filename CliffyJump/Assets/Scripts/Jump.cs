@@ -39,6 +39,7 @@ public class Jump : MonoBehaviour
 			gravity.speed = jumpSpeed;
             sound.Play();
             GetComponent<Animator>().SetTrigger("jump");
-		}
+            transform.Find("JumpParticles").gameObject.GetComponent<ParticleSystem>().Play();
+        }
 	}
 }

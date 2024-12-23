@@ -244,7 +244,7 @@ public class PlayerMove : MonoBehaviour
 	{
 		dead = true;
 		transform.Find("Cat").gameObject.SetActive(false);
-		GetComponentInChildren<ParticleSystem>().Play();
+		transform.Find("DeathParticles").gameObject.GetComponent<ParticleSystem>().Play();
 		yield return new WaitForSeconds(3f);
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
