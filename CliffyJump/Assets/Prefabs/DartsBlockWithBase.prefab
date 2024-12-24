@@ -277,6 +277,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7873707678513316636}
+  - component: {fileID: 5160967276848370974}
   m_Layer: 0
   m_Name: DartsBlockWithBase
   m_TagString: Untagged
@@ -301,6 +302,23 @@ Transform:
   - {fileID: 2183869754900642593}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5160967276848370974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6184594702507764891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f20a10b72b1946e4a90dd4b2a81a7175, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dartPrefab: {fileID: 4817232383283438117, guid: 98dd18d2e462ca5459add9fa2fadc097, type: 3}
+  offset: 0
+  cooldown: 2
+  dartSpeed: 20
+  darts: []
 --- !u!1 &6263642757145435161
 GameObject:
   m_ObjectHideFlags: 0

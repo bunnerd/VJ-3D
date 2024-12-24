@@ -50,7 +50,7 @@ public class DartBlock : MonoBehaviour
 		// dartAmount = ceil(dartsPerSecond * timeToExitScreen)
 
 		// Simplified operation:
-		dartAmount = Mathf.CeilToInt(50.0f / (cooldown * dartSpeed));
+		dartAmount = Mathf.CeilToInt(50.0f / (cooldown * dartSpeed)) + 3;
 		darts = new GameObject[dartAmount];
 
 		for (int i = 0; i < dartAmount; ++i) 
@@ -59,8 +59,8 @@ public class DartBlock : MonoBehaviour
 
 			// Set parent
 			dartInstance.transform.parent = transform;
-			// Disable movement or something
-
+			dartInstance.transform.position = transform.position;
+			dartInstance.transform.Rotate(0.0f, 0.0f, 90.0f);
 			darts[i] = dartInstance;
 		}
 
@@ -76,6 +76,7 @@ public class DartBlock : MonoBehaviour
 
 	void Shoot()
 	{
+		Debug.Log("Shoot!");
 		start = Time.time;
 
 		// Get component and stuff

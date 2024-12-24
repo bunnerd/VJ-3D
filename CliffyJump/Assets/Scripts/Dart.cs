@@ -6,14 +6,14 @@ public class Dart : MonoBehaviour
     Vector3 startPos;
     Vector3 speed;
 	Vector3 finalSpeed;
-    float accelerationTime = 0.5f;
+    float accelerationTime = 0.1f;
 	Vector3 acceleration;
 
-    public bool active = false;
+    public bool isActive = false;
 
     public void Shoot(Vector3 finalSpeed)
     {
-        active = true;
+		isActive = true;
         startPos = transform.position;
         this.finalSpeed = finalSpeed;
         acceleration = finalSpeed / accelerationTime;
@@ -28,7 +28,7 @@ public class Dart : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!active)
+        if (!isActive)
             return;
 
         if (Mathf.Abs(speed.x) < Mathf.Abs(finalSpeed.x) || Mathf.Abs(speed.z) < Mathf.Abs(finalSpeed.z)) 
@@ -41,7 +41,8 @@ public class Dart : MonoBehaviour
         if (Vector3.Distance(startPos, transform.position) > 50.0f) 
         {
             transform.position = startPos;
-            active = false;
+            speed = Vector3.zero;
+			isActive = false;
         }
     }
 }
