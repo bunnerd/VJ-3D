@@ -63,9 +63,7 @@ public class Screen : MonoBehaviour
 	}
 
     public IEnumerator RaiseGround()
-    {
-		Debug.Log("Raise ground!");
-		
+    {		
         float startTime = Time.time;
         while (Time.time - startTime <= duration)
         {
@@ -87,6 +85,7 @@ public class Screen : MonoBehaviour
 
     public IEnumerator LowerGround()
     {
+        // Waits until DespawnObstacles() has finished
         yield return new WaitForSeconds(0.4f);
 
         float startTime = Time.time;
