@@ -16,6 +16,8 @@ public class PlayerMove : MonoBehaviour
 	public LayerMask obstacleLayer;
 	public LayerMask stopLayer;
 
+	public AudioSource deathSound;
+
 	private bool collidedWithTrigger = false;
 
 	private bool fullStopped = false;
@@ -243,6 +245,7 @@ public class PlayerMove : MonoBehaviour
 	private IEnumerator Die() 
 	{
 		dead = true;
+		deathSound.Play();
 		transform.Find("Cat").gameObject.SetActive(false);
 		transform.Find("DeathParticles").gameObject.GetComponent<ParticleSystem>().Play();
 		yield return new WaitForSeconds(3f);
@@ -257,8 +260,6 @@ public class PlayerMove : MonoBehaviour
 		Collider[] collisions = Physics.OverlapSphere(nextPosition, size/2, stopLayer);
 		if (collisions.Length > 0 && !collidedWithStopPoint)
 		{
-			Debug.Log("Stop point! Pos: " + transform.position + ", sphere to " + collisions[0].gameObject.transform.position + " (" + collisions[0].gameObject.transform.localPosition + ")");
-
 			stopped = true;
 			collidedWithStopPoint = true;
 			Vector3 movement = collisions[0].gameObject.transform.position - transform.position;

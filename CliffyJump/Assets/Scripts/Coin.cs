@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
+    public AudioSource pickUpSound;
+
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("coin");
+        pickUpSound.Play();
         GetComponentInChildren<ParticleSystem>().Play();
         transform.Find("Model").gameObject.SetActive(false);
     }

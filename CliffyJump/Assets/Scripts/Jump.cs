@@ -6,7 +6,7 @@ public class Jump : MonoBehaviour
     PlayerMove playerMove;
     public float jumpSpeed;
 
-    public AudioSource sound;
+    public AudioSource jumpSound;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,9 +35,8 @@ public class Jump : MonoBehaviour
         else 
         {
             // Jump
-			Debug.Log("Jump");
 			gravity.speed = jumpSpeed;
-            sound.Play();
+            jumpSound.Play();
             GetComponent<Animator>().SetTrigger("jump");
             transform.Find("JumpParticles").gameObject.GetComponent<ParticleSystem>().Play();
         }

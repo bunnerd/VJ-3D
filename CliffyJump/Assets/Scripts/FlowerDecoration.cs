@@ -4,6 +4,7 @@ using UnityEngine.Rendering;
 public class FlowerDecoration : MonoBehaviour
 {
     ParticleSystem petalParticles;
+    public AudioSource sound;
 
     private void Start()
     {
@@ -13,5 +14,6 @@ public class FlowerDecoration : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         petalParticles.Play();
+        sound.Play();
     }
 }
