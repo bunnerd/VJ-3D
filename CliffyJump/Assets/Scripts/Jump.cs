@@ -5,12 +5,14 @@ public class Jump : MonoBehaviour
     Gravity gravity;
     PlayerMove playerMove;
     public float jumpSpeed;
+    public bool fullStopped;
 
     public AudioSource jumpSound;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        fullStopped = false;
         gravity = GetComponent<Gravity>();
         playerMove = GetComponent<PlayerMove>();
     }
@@ -18,7 +20,7 @@ public class Jump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && gravity.Grounded()) 
+        if (Input.GetKeyDown(KeyCode.Space) && gravity.Grounded() && !fullStopped) 
         {
             DoJump();
         }   

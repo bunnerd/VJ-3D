@@ -115,12 +115,14 @@ public class PlayerMove : MonoBehaviour
 	{
 		fullStopped = true;
 		transform.gameObject.GetComponent<Gravity>().fullStopped = true;
+		transform.gameObject.GetComponent<Jump>().fullStopped = true;
 	}
 
 	public void EnableMove()
 	{
 		fullStopped = false;
 		transform.gameObject.GetComponent<Gravity>().fullStopped = false;
+		transform.gameObject.GetComponent<Jump>().fullStopped = false;
 	}
 
 	public void TurnLeft() 
@@ -245,6 +247,7 @@ public class PlayerMove : MonoBehaviour
 	private IEnumerator Die() 
 	{
 		dead = true;
+		FullStop();
 		deathSound.Play();
 		transform.Find("Cat").gameObject.SetActive(false);
 		transform.Find("DeathParticles").gameObject.GetComponent<ParticleSystem>().Play();
@@ -263,7 +266,6 @@ public class PlayerMove : MonoBehaviour
 			stopped = true;
 			collidedWithStopPoint = true;
 			Vector3 movement = collisions[0].gameObject.transform.position - transform.position;
-			Debug.Log(movement);
 			controller.Move(new Vector3(movement.x, 0.0f, movement.z));
 			GetComponent<Animator>().SetTrigger("stop");
 		}
