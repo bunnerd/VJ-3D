@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Coin : MonoBehaviour
@@ -9,5 +10,12 @@ public class Coin : MonoBehaviour
         pickUpSound.Play();
         GetComponentInChildren<ParticleSystem>().Play();
         transform.Find("Model").gameObject.SetActive(false);
+        StartCoroutine(Disable(2f));
+    }
+
+    private IEnumerator Disable(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        gameObject.SetActive(false);
     }
 }
