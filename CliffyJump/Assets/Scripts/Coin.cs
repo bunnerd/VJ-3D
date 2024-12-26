@@ -34,6 +34,6 @@ public class Coin : MonoBehaviour
     //{
     //    yield return new WaitForSeconds(seconds);
     //    gameObject.SetActive(false);
->>>>//>>> bda959ef68850917a2851f191e7ed1810a3ff78c
+    //>>> bda959ef68850917a2851f191e7ed1810a3ff78c
     //}
 }
