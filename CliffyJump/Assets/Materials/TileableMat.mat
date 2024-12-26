@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TileableShaderMat
+  m_Name: TileableMat
   m_Shader: {fileID: -6465566751694194690, guid: ee55e7b1dcd78de4397ad3353f687add, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -29,7 +29,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2D:
-        m_Texture: {fileID: 2800000, guid: 2bc0deae7e7ec5b4bb7844e6a918d3c1, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3bae510b8cbae6742bf4ae90d7a97e86, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -48,6 +48,9 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _Speed: 0.3
+    - _TopSpeed: 8
+    - _WallsSpeed: 0.25
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1

@@ -15,5 +15,7 @@ public class FlowerDecoration : MonoBehaviour
     {
         petalParticles.Play();
         sound.Play();
+        transform.Find("flowersNoPetals").gameObject.SetActive(true);
+        transform.Find("flowers").gameObject.SetActive(false);
     }
 }
