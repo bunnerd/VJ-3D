@@ -20,10 +20,12 @@ public class Jump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && gravity.Grounded() && !fullStopped) 
+        // mouse button 0 -> left button
+        // screen touches in mobile count as mouse clicks
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && gravity.Grounded() && !fullStopped)
         {
             DoJump();
-        }   
+        }
     }
 
     public void DoJump() 

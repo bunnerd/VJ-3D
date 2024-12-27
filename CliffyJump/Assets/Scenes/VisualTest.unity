@@ -5479,12 +5479,13 @@ GameObject:
   - component: {fileID: 1227197172}
   - component: {fileID: 1227197171}
   - component: {fileID: 1227197173}
+  - component: {fileID: 1227197174}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &1227197171
 MonoBehaviour:
@@ -5583,6 +5584,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a96844b5c24630a42a5f4e92d6ecff57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1227197174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227197170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252522b6e135702408f9afff05715d1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1233515949
@@ -10376,10 +10389,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clouds
       objectReference: {fileID: 0}
-    - target: {fileID: 3157967810915187728, guid: 85887523d7e3f564ebc62883a4ec9f30, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4839603227925077987, guid: 85887523d7e3f564ebc62883a4ec9f30, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.7
@@ -10494,6 +10503,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3768563080632518025, guid: d36728e958433df43bb65327f9894c45, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3768563080632518025, guid: d36728e958433df43bb65327f9894c45, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3768563080632518025, guid: d36728e958433df43bb65327f9894c45, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -113.19995
+      objectReference: {fileID: 0}
     - target: {fileID: 8414013379534684020, guid: d36728e958433df43bb65327f9894c45, type: 3}
       propertyPath: m_Name
       value: UI
@@ -10577,6 +10598,18 @@ PrefabInstance:
     - target: {fileID: 8544375491752620939, guid: d36728e958433df43bb65327f9894c45, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8879746588200474118, guid: d36728e958433df43bb65327f9894c45, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8879746588200474118, guid: d36728e958433df43bb65327f9894c45, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8879746588200474118, guid: d36728e958433df43bb65327f9894c45, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

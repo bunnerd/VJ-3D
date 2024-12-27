@@ -30563,6 +30563,7 @@ GameObject:
   - component: {fileID: 1227197171}
   - component: {fileID: 1227197173}
   - component: {fileID: 1227197174}
+  - component: {fileID: 1227197175}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -30673,6 +30674,18 @@ MonoBehaviour:
   - {fileID: 1648158218}
   - {fileID: 1224252442}
   entrance: {fileID: 1402097821}
+--- !u!114 &1227197175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227197170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252522b6e135702408f9afff05715d1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1227264951 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 409797641020603328, guid: 02e8820d213c45f468499529b8afb451, type: 3}
