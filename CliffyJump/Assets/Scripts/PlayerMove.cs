@@ -112,7 +112,6 @@ public class PlayerMove : MonoBehaviour
 
 		while (++counter < 3) 
 		{
-			Debug.Log("Looping");
 			transform.position = position;
 			yield return new WaitForEndOfFrame();
 		}

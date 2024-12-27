@@ -7,46 +7,39 @@ public class NextScreen : MonoBehaviour
     public GameObject player;
     public GameObject[] screens = new GameObject[10];
 
-    public int currentScreen = -1;
-    private bool first = true;
+    private int loadedScreen = -1;
 
-    public IEnumerator LoadNextScreen() 
+    public void LoadNextScreen() 
     {
-        if (!first && currentScreen >= 0)
-        {
-            screens[currentScreen].GetComponent<Screen>().Unload();
-            yield return new WaitForSeconds(1.15f);
-        }
-        else if (first)
-            first = false;
-
-        // No more screens, we have beaten the level
-        if (++currentScreen >= 10) 
-        {
-            yield return null;
-        }
-
-		// More screens, load the next
-		screens[currentScreen].GetComponent<Screen>().Load();
-        yield return new WaitForSeconds(1.15f);
+		if (loadedScreen == 9) 
+		{
+			// No more screens!
+		}
+		else
+			StartCoroutine(LoadScreen(loadedScreen + 1));
 	}
 
-	public IEnumerator LoadPrevScreen()
+	public void LoadPrevScreen()
 	{
-		if (currentScreen >= 0)
+		if (loadedScreen == 0)
 		{
-			screens[currentScreen].GetComponent<Screen>().Unload();
+			// No more screens!
+		}
+		else
+			StartCoroutine(LoadScreen(loadedScreen - 1));
+	}
+
+	// Loads the ith screen. Starts at 0
+    public IEnumerator LoadScreen(int i) 
+    {
+		if (loadedScreen >= 0)
+		{
+			screens[loadedScreen].GetComponent<Screen>().Unload();
 			yield return new WaitForSeconds(1.15f);
 		}
 
-		// No more screens, we have beaten the level
-		if (--currentScreen < 0)
-		{
-			yield return null;
-		}
-
-		// More screens, load the next
-		screens[currentScreen].GetComponent<Screen>().Load();
+		screens[i].GetComponent<Screen>().Load();
+		loadedScreen = i;
 		yield return new WaitForSeconds(1.15f);
 	}
 
@@ -54,15 +47,21 @@ public class NextScreen : MonoBehaviour
 	void Start()
     {
 		Application.targetFrameRate = 60;
-        StartCoroutine(LoadNextScreen());
+        StartCoroutine(LoadScreen(0));
 	}
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-            StartCoroutine(LoadNextScreen());
+		if (Input.GetKeyDown(KeyCode.RightArrow)) 
+		{
+			player.GetComponent<PlayerMove>().FullStop();
+			LoadNextScreen();
+		}
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
-            StartCoroutine(LoadPrevScreen());
-    }
+		{
+			player.GetComponent<PlayerMove>().FullStop();
+			LoadPrevScreen();
+		}
+	}
 }
