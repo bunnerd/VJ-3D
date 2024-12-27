@@ -7,6 +7,7 @@ public class Screen : MonoBehaviour
     [SerializeField] private AnimationCurve animCurve;
     public GameObject[] objects;
     public GameObject[] obstacles;
+    public GameObject[] coins;
     public GameObject player;
 
     public float startHeight = -5.0f;
@@ -23,7 +24,22 @@ public class Screen : MonoBehaviour
         }
     }
 
-    public void Load() 
+	private void Start()
+	{
+        // Get the coins
+		List<GameObject> tmp = new List<GameObject>();
+		foreach (Transform child in GetComponentsInChildren<Transform>())
+		{
+            if (child.gameObject.CompareTag("Coin"))
+            {
+                child.gameObject.SetActive(false);
+				tmp.Add(child.gameObject);
+			}
+		}
+        coins = tmp.ToArray();
+	}
+
+	public void Load() 
     {
         transform.gameObject.SetActive(true);
 		saws = new List<GameObject>();
@@ -34,7 +50,7 @@ public class Screen : MonoBehaviour
             // Gets objects in the Obstacle (3) layer. Extra checks are to ensure the prefab's children aren't added
             if (child.gameObject.layer == 3 && child.parent != null && child.parent.gameObject.layer != 3)
                 tmp.Add(child.gameObject);
-            // Gets objects in the StopPoint (7) layer. 
+            // Gets objects in the StopPoint (7) layer. Same checks here
             else if (child.gameObject.layer == 7 && child.parent != null && child.parent.gameObject.layer != 7)
                 tmp.Add(child.gameObject);
             else if (child.gameObject.CompareTag("Saw"))
@@ -107,6 +123,13 @@ public class Screen : MonoBehaviour
         // Waits until RaiseGround() has finished
         yield return new WaitForSeconds(0.75f);
 
+        foreach (GameObject coin in coins) 
+        {
+			coin.SetActive(true);
+            coin.GetComponent<Coin>().Init();
+			StartCoroutine(coin.GetComponent<CoinLoader>().Load());
+		}
+
         // Special case for the saw obstacle
         foreach (GameObject saw in saws)
             saw.SetActive(true);
@@ -122,6 +145,11 @@ public class Screen : MonoBehaviour
 
     public IEnumerator DespawnObstacles() 
     {
+        foreach (GameObject coin in coins) 
+        {
+			StartCoroutine(coin.GetComponent<CoinLoader>().Unload());
+		}
+
 		foreach (GameObject obstacle in obstacles)
 		{
 			StartCoroutine(obstacle.GetComponent<ObstacleManager>().UnloadObstacle());

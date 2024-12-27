@@ -420,6 +420,7 @@ GameObject:
   - component: {fileID: 992969600390727044}
   - component: {fileID: 6571879855292238510}
   - component: {fileID: 697629245749821326}
+  - component: {fileID: 8612768759612721965}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -512,3 +513,16 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8612768759612721965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8414013379534684020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af5d199cb69fcf243aafbaf15e7fc8ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinsText: {fileID: 2850808203759857114}

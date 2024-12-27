@@ -42,6 +42,8 @@ public class PlayerMove : MonoBehaviour
 
     private Vector3[] moveVectors;
 
+	private GameUI ui;
+
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
 	{
@@ -61,6 +63,12 @@ public class PlayerMove : MonoBehaviour
 		};
 
 		gravity = GetComponent<Gravity>();
+
+		ui = GameObject.Find("UI").GetComponent<GameUI>();
+		if (ui == null)
+		{
+			Debug.LogError("PlayerMove: UI component not found! Make sure there is an UI prefab object in the scene this Player is in");
+		}
 	}
 
 	private void Update()
@@ -279,7 +287,7 @@ public class PlayerMove : MonoBehaviour
 		yield return new WaitForSeconds(1.5f);
 
 		// Erase coin progress in this screen here
-
+		ui.OnDeath();
 
 		// Reload the current screen
 		nextScreen.ReloadCurrentScreen();
