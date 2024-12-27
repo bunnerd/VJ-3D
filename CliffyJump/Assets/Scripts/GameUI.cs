@@ -1,12 +1,47 @@
+using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 
 public class GameUI : MonoBehaviour
 {
     public TextMeshProUGUI coinsText;
+    public TextMeshProUGUI progressText;
 
     private int displayCoins;
     private int realCoins;
+
+    private int currentLevelMaxProgress;
+    private int currentProgress;
+
+    private int currentLevel;
+
+    public void SetLevel(int level) 
+    {
+        currentLevel = level;
+        currentLevelMaxProgress = PlayerPrefs.GetInt("maxProgress" + level, 0);
+	}
+
+    public void OnScreenLoad(int screenIndex)
+    {
+        Progress(screenIndex * 10);
+    }
+
+    public void Progress(int progress) 
+    {
+        currentProgress = progress;
+        if (progress > currentLevelMaxProgress) 
+        {
+            currentLevelMaxProgress = progress;
+            PlayerPrefs.SetInt("maxProgress" + currentLevel, progress);
+        }
+        UpdateProgressDisplay();
+	}
+
+    private void UpdateProgressDisplay()
+    {
+        progressText.SetText(currentProgress.ToString());
+
+	}
 
     public void CollectCoin() 
     {

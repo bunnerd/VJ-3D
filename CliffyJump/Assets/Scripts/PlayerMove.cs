@@ -16,6 +16,7 @@ public class PlayerMove : MonoBehaviour
 	public LayerMask obstacleLayer;
 	public LayerMask stopLayer;
 	public LayerMask jumpLayer;
+	public LayerMask progressLayer;
 
 	public AudioSource deathSound;
 	private Gravity gravity;
@@ -30,6 +31,7 @@ public class PlayerMove : MonoBehaviour
 	public bool stopped = false;
 	private bool collidedWithStopPoint = false;
 	private bool collidedWithJumpPoint = false;
+	private bool collidedWithProgressPoint = false;
 	private bool teleporting = false;
 	private bool dead = false;
     public enum Orientation 
@@ -107,6 +109,7 @@ public class PlayerMove : MonoBehaviour
 		CheckCollisionWithObstacle(nextPosition);
 		CheckCollisionWithTurnPoint(nextPosition, ref movement);
 		CheckCollisionWithJumpPoint(nextPosition);
+		CheckCollisionWithProgressPoint(nextPosition);
 
 		if (!teleporting)
 			controller.Move(movement);
@@ -328,6 +331,23 @@ public class PlayerMove : MonoBehaviour
 		else if (collisions.Length == 0 && collidedWithJumpPoint)
 		{
 			collidedWithJumpPoint = false;
+		}
+	}
+
+	private void CheckCollisionWithProgressPoint(Vector3 nextPosition)
+	{
+		if (!godmode)
+			return;
+
+		Collider[] collisions = Physics.OverlapSphere(nextPosition, size / 2, progressLayer);
+		if (collisions.Length > 0 && !collidedWithProgressPoint)
+		{
+			collidedWithProgressPoint = true;
+			ui.Progress(collisions[0].gameObject.GetComponent<Progress>().GetProgress());
+		}
+		else if (collisions.Length == 0 && collidedWithProgressPoint)
+		{
+			collidedWithProgressPoint = false;
 		}
 	}
 }

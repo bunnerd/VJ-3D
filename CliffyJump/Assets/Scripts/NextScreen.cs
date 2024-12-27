@@ -8,6 +8,8 @@ public class NextScreen : MonoBehaviour
     public GameObject[] screens = new GameObject[10];
 	public GameObject entrance;
 
+	private GameUI ui;
+
     private int loadedScreen = -1;
 
     public void LoadNextScreen() 
@@ -41,6 +43,7 @@ public class NextScreen : MonoBehaviour
 
 		screens[i].GetComponent<Screen>().Load();
 		loadedScreen = i;
+		ui.OnScreenLoad(i);
 		player.GetComponent<PlayerMove>().Teleport(entrance.GetComponent<LevelEntrance>().GetStartPosition());
 		yield return new WaitForSeconds(1.15f);
 	}
@@ -53,7 +56,12 @@ public class NextScreen : MonoBehaviour
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
     {
-        StartCoroutine(LoadScreen(0));
+		ui = GameObject.Find("UI").GetComponent<GameUI>();
+		if (ui == null)
+		{
+			Debug.LogError("NextScreen: UI component not found! Make sure there is an UI prefab object in the scene this NextScreen is in");
+		}
+		StartCoroutine(LoadScreen(0));
 	}
 
     // Update is called once per frame
