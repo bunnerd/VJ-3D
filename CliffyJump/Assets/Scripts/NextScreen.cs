@@ -6,6 +6,7 @@ public class NextScreen : MonoBehaviour
 {
     public GameObject player;
     public GameObject[] screens = new GameObject[10];
+	public GameObject entrance;
 
     private int loadedScreen = -1;
 
@@ -40,7 +41,13 @@ public class NextScreen : MonoBehaviour
 
 		screens[i].GetComponent<Screen>().Load();
 		loadedScreen = i;
+		player.GetComponent<PlayerMove>().Teleport(entrance.GetComponent<LevelEntrance>().GetStartPosition());
 		yield return new WaitForSeconds(1.15f);
+	}
+
+	public void ReloadCurrentScreen() 
+	{
+		StartCoroutine(LoadScreen(loadedScreen));
 	}
 
 	// Start is called once before the first execution of Update after the MonoBehaviour is created

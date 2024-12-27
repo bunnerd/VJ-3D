@@ -18,6 +18,9 @@ public class PlayerMove : MonoBehaviour
 	public LayerMask jumpLayer;
 
 	public AudioSource deathSound;
+	private Gravity gravity;
+
+	public NextScreen nextScreen;
 
 	private bool godmode = false;
 
@@ -56,6 +59,8 @@ public class PlayerMove : MonoBehaviour
 			new (0f, 0f, -1f),
 			new (-1f, 0f, 0f)
 		};
+
+		gravity = GetComponent<Gravity>();
 	}
 
 	private void Update()
@@ -130,9 +135,13 @@ public class PlayerMove : MonoBehaviour
 
 	public void EnableMove()
 	{
+		dead = false;
 		fullStopped = false;
+		transform.rotation = Quaternion.identity;
+		orientation = Orientation.Forward;
 		transform.gameObject.GetComponent<Gravity>().fullStopped = false;
 		transform.gameObject.GetComponent<Jump>().fullStopped = false;
+		transform.Find("Cat").gameObject.SetActive(true);
 	}
 
 	public void TurnLeft() 
@@ -187,6 +196,9 @@ public class PlayerMove : MonoBehaviour
 
 	private void CheckCollisionWithTurnPoint(Vector3 nextPosition, ref Vector3 movement) 
 	{
+		if (!gravity.Grounded())
+			return;
+
 		Collider[] collisions = Physics.OverlapSphere(nextPosition, size, turnLayer);
 
 		if (collisions.Length > 1)
@@ -264,8 +276,14 @@ public class PlayerMove : MonoBehaviour
 		deathSound.Play();
 		transform.Find("Cat").gameObject.SetActive(false);
 		transform.Find("DeathParticles").gameObject.GetComponent<ParticleSystem>().Play();
-		yield return new WaitForSeconds(3f);
-		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		yield return new WaitForSeconds(1.5f);
+
+		// Erase coin progress in this screen here
+
+
+		// Reload the current screen
+		nextScreen.ReloadCurrentScreen();
+		//SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
 	private void CheckCollisionWithStopPoint(Vector3 nextPosition) 

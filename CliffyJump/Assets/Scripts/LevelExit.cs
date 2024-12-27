@@ -24,7 +24,6 @@ public class LevelExit : MonoBehaviour
         if (other.gameObject.CompareTag("Player")) 
         {
             player.GetComponent<PlayerMove>().FullStop();
-            player.GetComponent<PlayerMove>().Teleport(entrance.GetComponent<LevelEntrance>().GetStartPosition());
 			nextScreen.LoadNextScreen();
         }
 	}
