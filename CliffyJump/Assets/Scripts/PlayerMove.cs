@@ -15,14 +15,18 @@ public class PlayerMove : MonoBehaviour
 	public LayerMask turnLayer;
 	public LayerMask obstacleLayer;
 	public LayerMask stopLayer;
+	public LayerMask jumpLayer;
 
 	public AudioSource deathSound;
+
+	private bool godmode = false;
 
 	private bool collidedWithTrigger = false;
 
 	private bool fullStopped = false;
 	public bool stopped = false;
 	private bool collidedWithStopPoint = false;
+	private bool collidedWithJumpPoint = false;
 	private bool teleporting = false;
 	private bool dead = false;
     public enum Orientation 
@@ -41,7 +45,9 @@ public class PlayerMove : MonoBehaviour
 		controller = GetComponent<CharacterController>();
 		collidedWithTrigger = false;
 		collidedWithStopPoint = false;
+		collidedWithJumpPoint = false;
 		stopped = false;
+		godmode = false;
 
 		moveVectors = new Vector3[]
 		{
@@ -62,9 +68,13 @@ public class PlayerMove : MonoBehaviour
 		{
 			TurnLeft();
 		}
-		else if (Input.GetKeyDown(KeyCode.P)) 
+		else if (Input.GetKeyDown(KeyCode.P))
 		{
 			Debug.Log(transform.position - new Vector3(0.0f, transform.lossyScale.y / 2, 0.0f));
+		}
+		else if (Input.GetKeyDown(KeyCode.G)) 
+		{
+			godmode = !godmode;
 		}
 	}
 
@@ -83,6 +93,7 @@ public class PlayerMove : MonoBehaviour
 
 		CheckCollisionWithObstacle(nextPosition);
 		CheckCollisionWithTurnPoint(nextPosition, ref movement);
+		CheckCollisionWithJumpPoint(nextPosition);
 
 		if (!teleporting)
 			controller.Move(movement);
@@ -237,6 +248,9 @@ public class PlayerMove : MonoBehaviour
 
 	private void CheckCollisionWithObstacle(Vector3 nextPosition) 
 	{
+		if (godmode)
+			return;
+
 		Collider[] collisions = Physics.OverlapSphere(nextPosition, size/2, obstacleLayer);
 		if (collisions.Length > 0 && !dead) 
 		{
@@ -272,6 +286,23 @@ public class PlayerMove : MonoBehaviour
 		else if (collisions.Length == 0 && collidedWithStopPoint) 
 		{
 			collidedWithStopPoint = false;
+		}
+	}
+
+	private void CheckCollisionWithJumpPoint(Vector3 nextPosition) 
+	{
+		if (!godmode)
+			return;
+
+		Collider[] collisions = Physics.OverlapSphere(nextPosition, size / 2, jumpLayer);
+		if (collisions.Length > 0 && !collidedWithJumpPoint)
+		{
+			collidedWithJumpPoint = true;
+			GetComponent<Jump>().DoJump();
+		}
+		else if (collisions.Length == 0 && collidedWithJumpPoint)
+		{
+			collidedWithJumpPoint = false;
 		}
 	}
 }

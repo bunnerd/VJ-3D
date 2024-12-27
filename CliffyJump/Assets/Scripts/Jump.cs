@@ -26,12 +26,12 @@ public class Jump : MonoBehaviour
         }   
     }
 
-    private void DoJump() 
+    public void DoJump() 
     {
         if (playerMove.stopped)
         {
-            // Move again
-            playerMove.stopped = false;
+			// Move again
+			playerMove.stopped = false;
             GetComponent<Animator>().SetTrigger("move");
         }
         else 

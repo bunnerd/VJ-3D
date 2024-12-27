@@ -7,15 +7,18 @@ public class NextScreen : MonoBehaviour
     public GameObject player;
     public GameObject[] screens = new GameObject[10];
 
-    private int currentScreen = -1;
+    public int currentScreen = -1;
+    private bool first = true;
 
     public IEnumerator LoadNextScreen() 
     {
-        if (currentScreen >= 0) 
+        if (!first && currentScreen >= 0)
         {
             screens[currentScreen].GetComponent<Screen>().Unload();
             yield return new WaitForSeconds(1.15f);
         }
+        else if (first)
+            first = false;
 
         // No more screens, we have beaten the level
         if (++currentScreen >= 10) 

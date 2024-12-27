@@ -76,7 +76,6 @@ public class DartBlock : MonoBehaviour
 
 	void Shoot()
 	{
-		Debug.Log("Shoot!");
 		start = Time.time;
 
 		// Get component and stuff
