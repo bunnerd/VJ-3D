@@ -47,17 +47,9 @@ public class PlayerMove : MonoBehaviour
 
 	private GameUI ui;
 
-	private float initialRotation;
-
-	private void Awake()
-	{
-		initialRotation = transform.rotation.y;
-	}
-
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
 	{
-		Debug.Log("Rotation: " + initialRotation);
 		controller = GetComponent<CharacterController>();
 		collidedWithTrigger = false;
 		collidedWithStopPoint = false;
@@ -143,7 +135,7 @@ public class PlayerMove : MonoBehaviour
 	{
 		dead = false;
 		fullStopped = false;
-		transform.rotation = Quaternion.Euler(0.0f, initialRotation, 0.0f);
+		transform.rotation = Quaternion.identity;
 		orientation = Orientation.Forward;
 		transform.gameObject.GetComponent<Gravity>().fullStopped = false;
 		transform.gameObject.GetComponent<Jump>().fullStopped = false;
