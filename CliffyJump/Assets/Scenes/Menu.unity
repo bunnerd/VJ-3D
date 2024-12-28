@@ -8263,8 +8263,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exitGameButton: {fileID: 1092762345}
-  sakuraProgress: {fileID: 0}
-  ruinsProgress: {fileID: 0}
+  sakuraProgress: {fileID: 482959656}
+  ruinsProgress: {fileID: 807917977}
 --- !u!4 &1490532422
 Transform:
   m_ObjectHideFlags: 0
