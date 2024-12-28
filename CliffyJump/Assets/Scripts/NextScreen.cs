@@ -61,7 +61,7 @@ public class NextScreen : MonoBehaviour
 		{
 			Debug.LogError("NextScreen: UI component not found! Make sure there is an UI prefab object in the scene this NextScreen is in");
 		}
-		StartCoroutine(LoadScreen(0));
+		StartCoroutine(LoadScreen(PlayerPrefs.GetInt("selectedScreen", 0)));
 	}
 
     // Update is called once per frame
