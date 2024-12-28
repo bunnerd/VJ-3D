@@ -7,6 +7,7 @@ public class NextScreen : MonoBehaviour
     public GameObject player;
     public GameObject[] screens = new GameObject[10];
 	public GameObject entrance;
+	public int startScreen = 0;
 
 	private GameUI ui;
 
@@ -61,7 +62,7 @@ public class NextScreen : MonoBehaviour
 		{
 			Debug.LogError("NextScreen: UI component not found! Make sure there is an UI prefab object in the scene this NextScreen is in");
 		}
-		StartCoroutine(LoadScreen(PlayerPrefs.GetInt("selectedScreen", 0)));
+		StartCoroutine(LoadScreen(PlayerPrefs.GetInt("selectedScreen", startScreen)));
 	}
 
     // Update is called once per frame

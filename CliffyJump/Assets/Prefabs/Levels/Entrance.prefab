@@ -51,6 +51,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   first: {fileID: 1994601436263604483}
+  moveVectors:
+  - {x: 0, y: 0, z: 1}
+  - {x: 1, y: 0, z: 0}
+  - {x: 0, y: 0, z: -1}
+  - {x: -1, y: 0, z: 0}
 --- !u!1001 &581660909533952060
 PrefabInstance:
   m_ObjectHideFlags: 0

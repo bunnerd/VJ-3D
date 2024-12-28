@@ -7,6 +7,7 @@ using UnityEngineInternal;
 public class PlayerMove : MonoBehaviour
 {
     CharacterController controller;
+	public LevelEntrance entrance;
 
     public Orientation orientation = Orientation.Forward;
     public float speed;
@@ -46,9 +47,17 @@ public class PlayerMove : MonoBehaviour
 
 	private GameUI ui;
 
+	private float initialRotation;
+
+	private void Awake()
+	{
+		initialRotation = transform.rotation.y;
+	}
+
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
 	{
+		Debug.Log("Rotation: " + initialRotation);
 		controller = GetComponent<CharacterController>();
 		collidedWithTrigger = false;
 		collidedWithStopPoint = false;
@@ -56,13 +65,7 @@ public class PlayerMove : MonoBehaviour
 		stopped = false;
 		godmode = false;
 
-		moveVectors = new Vector3[]
-		{
-			new (0f, 0f, 1f),
-			new (1f, 0f, 0f),
-			new (0f, 0f, -1f),
-			new (-1f, 0f, 0f)
-		};
+		moveVectors = entrance.moveVectors;
 
 		gravity = GetComponent<Gravity>();
 
@@ -75,15 +78,7 @@ public class PlayerMove : MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.D))
-		{
-			TurnRight();
-		}
-		else if (Input.GetKeyDown(KeyCode.A))
-		{
-			TurnLeft();
-		}
-		else if (Input.GetKeyDown(KeyCode.P))
+		if (Input.GetKeyDown(KeyCode.P))
 		{
 			Debug.Log(transform.position - new Vector3(0.0f, transform.lossyScale.y / 2, 0.0f));
 		}
@@ -148,7 +143,7 @@ public class PlayerMove : MonoBehaviour
 	{
 		dead = false;
 		fullStopped = false;
-		transform.rotation = Quaternion.identity;
+		transform.rotation = Quaternion.Euler(0.0f, initialRotation, 0.0f);
 		orientation = Orientation.Forward;
 		transform.gameObject.GetComponent<Gravity>().fullStopped = false;
 		transform.gameObject.GetComponent<Jump>().fullStopped = false;

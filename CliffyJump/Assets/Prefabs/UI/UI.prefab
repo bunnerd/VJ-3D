@@ -526,3 +526,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinsText: {fileID: 2850808203759857114}
+  progressText: {fileID: 2356128974078133187}

@@ -223,6 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7266831b9dac5c543a7bed740d0cc24d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entrance: {fileID: 0}
   orientation: 0
   speed: 12
   turnLayer:
@@ -237,7 +238,11 @@ MonoBehaviour:
   jumpLayer:
     serializedVersion: 2
     m_Bits: 256
+  progressLayer:
+    serializedVersion: 2
+    m_Bits: 512
   deathSound: {fileID: 7042743082513243509}
+  nextScreen: {fileID: 0}
   stopped: 0
 --- !u!95 &1434611842253588895
 Animator:
