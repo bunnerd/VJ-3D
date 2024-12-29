@@ -323,9 +323,6 @@ public class PlayerMove : MonoBehaviour
 
 	private void CheckCollisionWithProgressPoint(Vector3 nextPosition)
 	{
-		if (!godmode)
-			return;
-
 		Collider[] collisions = Physics.OverlapSphere(nextPosition, size / 2, progressLayer);
 		if (collisions.Length > 0 && !collidedWithProgressPoint)
 		{
