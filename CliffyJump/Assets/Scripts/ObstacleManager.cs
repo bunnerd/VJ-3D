@@ -14,6 +14,8 @@ public class ObstacleManager : MonoBehaviour
     public bool invertX = false;
     public bool invertZ = false;
 
+    public bool isDartBlock = false;
+
     private float scaleX;
     private float scaleZ;
 
@@ -43,7 +45,10 @@ public class ObstacleManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         transform.localScale = new Vector3(scaleX * endScale, endScale, scaleZ * endScale);
-    }
+
+		if (isDartBlock)
+			GetComponent<DartBlock>().Init();
+	}
 
 	public IEnumerator UnloadObstacle()
 	{

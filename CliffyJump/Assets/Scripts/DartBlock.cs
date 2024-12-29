@@ -14,16 +14,20 @@ public class DartBlock : MonoBehaviour
 	private Vector3 dartSpeedVec;
 
 	bool shotOnce = false;
+	bool init = false;
 
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
 	{
-		Init();
+
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
+		if (!init)
+			return;
+
 		if (!shotOnce)
 		{
 			if (Time.time - start >= offset)
@@ -38,8 +42,10 @@ public class DartBlock : MonoBehaviour
 		}
 	}
 
-	void Init()
+	public void Init()
 	{
+		Debug.Log("Init");
+
 		shotOnce = false;
 		currentDart = 0;
 		start = Time.time;
@@ -53,7 +59,7 @@ public class DartBlock : MonoBehaviour
 		dartAmount = Mathf.CeilToInt(50.0f / (cooldown * dartSpeed)) + 3;
 		darts = new GameObject[dartAmount];
 
-		for (int i = 0; i < dartAmount; ++i) 
+		for (int i = 0; i < dartAmount; ++i)
 		{
 			GameObject dartInstance = Instantiate(dartPrefab);
 
@@ -68,10 +74,12 @@ public class DartBlock : MonoBehaviour
 			dartSpeedVec = new Vector3(dartSpeed, 0.0f, 0.0f);
 		else if (transform.rotation.y == 180.0f)
 			dartSpeedVec = new Vector3(-dartSpeed, 0.0f, 0.0f);
-		else if(transform.rotation.y == 90.0f)
+		else if (transform.rotation.y == 90.0f)
 			dartSpeedVec = new Vector3(0.0f, 0.0f, -dartSpeed);
-		else if(transform.rotation.y == 270.0f)
+		else if (transform.rotation.y == 270.0f)
 			dartSpeedVec = new Vector3(0.0f, 0.0f, dartSpeed);
+
+		init = true;
 	}
 
 	void Shoot()
