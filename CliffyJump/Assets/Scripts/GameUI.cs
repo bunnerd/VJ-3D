@@ -28,7 +28,6 @@ public class GameUI : MonoBehaviour
 
     public void Progress(int progress) 
     {
-        Debug.Log("Progress");
         currentProgress = progress;
         if (progress > currentLevelMaxProgress) 
         {
