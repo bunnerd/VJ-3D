@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 
 public class NextScreen : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class NextScreen : MonoBehaviour
 	private GameUI ui;
 
     private int loadedScreen = -1;
+	public bool testing = false;
 
     public void LoadNextScreen() 
     {
@@ -62,7 +64,11 @@ public class NextScreen : MonoBehaviour
 		{
 			Debug.LogError("NextScreen: UI component not found! Make sure there is an UI prefab object in the scene this NextScreen is in");
 		}
-		StartCoroutine(LoadScreen(PlayerPrefs.GetInt("selectedScreen", startScreen)));
+
+		if (testing)
+			StartCoroutine(LoadScreen(startScreen));
+		else
+			StartCoroutine(LoadScreen(PlayerPrefs.GetInt("selectedScreen", startScreen)));
 	}
 
     // Update is called once per frame
