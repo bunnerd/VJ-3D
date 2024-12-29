@@ -62,5 +62,8 @@ public class ObstacleManager : MonoBehaviour
 			yield return new WaitForEndOfFrame();
 		}
 		transform.localScale = new Vector3(scaleX * startScale, startScale, scaleZ * startScale);
+
+        if (isDartBlock)
+            GetComponent<DartBlock>().Fini();
 	}
 }
