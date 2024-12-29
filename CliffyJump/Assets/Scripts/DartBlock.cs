@@ -66,7 +66,6 @@ public class DartBlock : MonoBehaviour
 			// Set parent
 			dartInstance.transform.parent = transform;
 			dartInstance.transform.position = transform.position;
-			dartInstance.transform.Rotate(0.0f, 0.0f, 90.0f);
 			darts[i] = dartInstance;
 		}
 
