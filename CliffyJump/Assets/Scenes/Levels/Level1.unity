@@ -26402,6 +26402,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8612768759612721965, guid: d36728e958433df43bb65327f9894c45, type: 3}
+      propertyPath: currentLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8612768759612721965, guid: d36728e958433df43bb65327f9894c45, type: 3}
       propertyPath: progressText
       value: 
       objectReference: {fileID: 397940333}

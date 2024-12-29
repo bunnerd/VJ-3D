@@ -13,7 +13,7 @@ public class GameUI : MonoBehaviour
     private int currentLevelMaxProgress;
     private int currentProgress;
 
-    private int currentLevel;
+    public int currentLevel;
 
     public void SetLevel(int level) 
     {
@@ -70,6 +70,7 @@ public class GameUI : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        SetLevel(currentLevel);
         realCoins = PlayerPrefs.GetInt("coins", 0);
         displayCoins = realCoins;
 		UpdateCoinDisplay();
