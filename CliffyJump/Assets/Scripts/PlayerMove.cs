@@ -24,7 +24,7 @@ public class PlayerMove : MonoBehaviour
 
 	public NextScreen nextScreen;
 
-	private bool godmode = false;
+	public bool godmode = false;
 
 	private bool collidedWithTrigger = false;
 

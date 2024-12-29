@@ -48,9 +48,6 @@ public class DartBlock : MonoBehaviour
 		currentDart = 0;
 		start = Time.time;
 
-		
-
-
 		if (darts.Length == 0) 
 		{
 			// Idea:
@@ -69,16 +66,20 @@ public class DartBlock : MonoBehaviour
 				// Set parent
 				dartInstance.transform.parent = transform;
 				dartInstance.transform.position = transform.position;
+				dartInstance.transform.rotation = transform.rotation;
+				dartInstance.transform.localScale = transform.localScale;
 				darts[i] = dartInstance;
 
-				if (transform.rotation.y == 0.0f)
+				if (transform.rotation.eulerAngles.y == 0.0f)
 					dartSpeedVec = new Vector3(dartSpeed, 0.0f, 0.0f);
-				else if (transform.rotation.y == 180.0f)
+				else if (transform.rotation.eulerAngles.y == 180.0f)
 					dartSpeedVec = new Vector3(-dartSpeed, 0.0f, 0.0f);
-				else if (transform.rotation.y == 90.0f)
+				else if (transform.rotation.eulerAngles.y == 90.0f)
 					dartSpeedVec = new Vector3(0.0f, 0.0f, -dartSpeed);
-				else if (transform.rotation.y == 270.0f)
+				else if (transform.rotation.eulerAngles.y == 270.0f)
 					dartSpeedVec = new Vector3(0.0f, 0.0f, dartSpeed);
+				else
+					Debug.LogError("DartBlock: Rotation is not supported: " + transform.rotation.eulerAngles.y);
 			}
 		}
 		else 
@@ -88,11 +89,6 @@ public class DartBlock : MonoBehaviour
 				darts[i].transform.position = transform.position;
 			}
 		}
-			
-
-		
-
-		
 
 		init = true;
 	}

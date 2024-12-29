@@ -24,11 +24,11 @@ public class Jump : MonoBehaviour
         // screen touches in mobile count as mouse clicks
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && gravity.Grounded() && !fullStopped)
         {
-            DoJump();
+            DoJump(playerMove.godmode);
         }
     }
 
-    public void DoJump() 
+    public void DoJump(bool godmode = false) 
     {
         if (playerMove.stopped)
         {
@@ -38,6 +38,9 @@ public class Jump : MonoBehaviour
         }
         else 
         {
+            if (godmode)
+                return;
+
             // Jump
 			gravity.speed = jumpSpeed;
             jumpSound.Play();
