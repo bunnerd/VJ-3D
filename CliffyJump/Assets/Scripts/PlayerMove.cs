@@ -24,6 +24,8 @@ public class PlayerMove : MonoBehaviour
 
 	public NextScreen nextScreen;
 
+	public CameraShake cameraShake;
+
 	public bool godmode = false;
 
 	private bool collidedWithTrigger = false;
@@ -274,6 +276,7 @@ public class PlayerMove : MonoBehaviour
 		deathSound.Play();
 		transform.Find("Cat").gameObject.SetActive(false);
 		transform.Find("DeathParticles").gameObject.GetComponent<ParticleSystem>().Play();
+		StartCoroutine(cameraShake.Shake(0.4f, 0.2f));
 		yield return new WaitForSeconds(1.5f);
 
 		// Erase coin progress in this screen here

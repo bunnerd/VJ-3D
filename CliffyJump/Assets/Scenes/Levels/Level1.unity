@@ -2735,6 +2735,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1227197174}
     - target: {fileID: 5282110480757896353, guid: 6040f8beb0786c748885d78d1385c7c2, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 219304748}
+    - target: {fileID: 5282110480757896353, guid: 6040f8beb0786c748885d78d1385c7c2, type: 3}
       propertyPath: progressLayer.m_Bits
       value: 512
       objectReference: {fileID: 0}
@@ -7628,6 +7632,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad7ad5e3cf12032478447dd5a1b876f8, type: 3}
+--- !u!114 &219304748 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8858776617817821164, guid: ad7ad5e3cf12032478447dd5a1b876f8, type: 3}
+  m_PrefabInstance: {fileID: 219304747}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eac824b09511c8d439d2db8ea2dda09d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &219509509
 PrefabInstance:
   m_ObjectHideFlags: 0
