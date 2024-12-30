@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Jump : MonoBehaviour
 {
@@ -22,7 +23,9 @@ public class Jump : MonoBehaviour
     {
         // mouse button 0 -> left button
         // screen touches in mobile count as mouse clicks
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && gravity.Grounded() && !fullStopped)
+        if ( (Input.GetKeyDown(KeyCode.Space) || 
+             (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())) // Don't jump when clicking UI
+            && gravity.Grounded() && !fullStopped)
         {
             DoJump(playerMove.godmode);
         }
