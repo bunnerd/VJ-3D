@@ -2970,26 +2970,6 @@ PrefabInstance:
       propertyPath: orientation
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5721870900574066631, guid: 6040f8beb0786c748885d78d1385c7c2, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5721870900574066631, guid: 6040f8beb0786c748885d78d1385c7c2, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5721870900574066631, guid: 6040f8beb0786c748885d78d1385c7c2, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5721870900574066631, guid: 6040f8beb0786c748885d78d1385c7c2, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5721870900574066631, guid: 6040f8beb0786c748885d78d1385c7c2, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7546249684697994857, guid: 6040f8beb0786c748885d78d1385c7c2, type: 3}
       propertyPath: jumpSpeed
       value: 25

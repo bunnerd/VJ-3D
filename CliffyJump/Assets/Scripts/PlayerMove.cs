@@ -113,7 +113,8 @@ public class PlayerMove : MonoBehaviour
 	private IEnumerator TeleportHelper(Vector3 position) 
 	{
 		int counter = 0;
-		GetComponentInChildren<TrailRenderer>().enabled = false;
+		GameObject activeTrail = FirstActiveChild(transform.Find("Trail"));
+        activeTrail.GetComponent<TrailRenderer>().enabled = false;
 
 		while (++counter < 3) 
 		{
@@ -122,8 +123,8 @@ public class PlayerMove : MonoBehaviour
 		}
 		teleporting = false;
 
-		GetComponentInChildren<TrailRenderer>().Clear();
-		GetComponentInChildren<TrailRenderer>().enabled = true;
+        activeTrail.GetComponent<TrailRenderer>().Clear();
+        activeTrail.GetComponent<TrailRenderer>().enabled = true;
 	}
 
 	public void FullStop() 
@@ -141,7 +142,7 @@ public class PlayerMove : MonoBehaviour
 		orientation = Orientation.Forward;
 		transform.gameObject.GetComponent<Gravity>().fullStopped = false;
 		transform.gameObject.GetComponent<Jump>().fullStopped = false;
-		transform.Find("Cat").gameObject.SetActive(true);
+		transform.Find("Model").gameObject.SetActive(true);
 	}
 
 	public void TurnLeft() 
@@ -274,7 +275,7 @@ public class PlayerMove : MonoBehaviour
 		dead = true;
 		FullStop();
 		deathSound.Play();
-		transform.Find("Cat").gameObject.SetActive(false);
+		transform.Find("Model").gameObject.SetActive(false);
 		transform.Find("DeathParticles").gameObject.GetComponent<ParticleSystem>().Play();
 		StartCoroutine(cameraShake.Shake(0.4f, 0.2f));
 		yield return new WaitForSeconds(1.5f);
@@ -337,4 +338,16 @@ public class PlayerMove : MonoBehaviour
 			collidedWithProgressPoint = false;
 		}
 	}
+
+	private GameObject FirstActiveChild(Transform objTransform)
+	{
+        foreach (Transform child in objTransform)
+        {
+            if (child.gameObject.activeSelf)
+            {
+                return child.gameObject;
+            }
+        }
+		return null;
+    }
 }

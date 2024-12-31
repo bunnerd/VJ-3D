@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CharacterSelection : MonoBehaviour
+public class UICharacterSelection : MonoBehaviour
 {
     public Button rightArrow;
     public Button leftArrow;

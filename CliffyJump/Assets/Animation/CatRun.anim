@@ -66,7 +66,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Cat/CatPawBL
+    path: Model/Cat/CatPawBL
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -118,7 +118,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Cat/CatPawBR
+    path: Model/Cat/CatPawBR
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -170,7 +170,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Cat/CatPawFL
+    path: Model/Cat/CatPawFL
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -222,7 +222,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Cat/CatPawFR
+    path: Model/Cat/CatPawFR
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves: []
@@ -234,7 +234,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 1122651851
+      path: 210380309
       attribute: 1
       script: {fileID: 0}
       typeID: 4
@@ -243,7 +243,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3102045096
+      path: 4135918454
       attribute: 1
       script: {fileID: 0}
       typeID: 4
@@ -252,7 +252,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 646351823
+      path: 1759961873
       attribute: 1
       script: {fileID: 0}
       typeID: 4
@@ -261,7 +261,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3700012716
+      path: 2464800370
       attribute: 1
       script: {fileID: 0}
       typeID: 4
@@ -344,7 +344,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Cat/CatPawBL
+    path: Model/Cat/CatPawBL
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -401,7 +401,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Cat/CatPawBL
+    path: Model/Cat/CatPawBL
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -458,7 +458,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Cat/CatPawBL
+    path: Model/Cat/CatPawBL
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -515,7 +515,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Cat/CatPawBR
+    path: Model/Cat/CatPawBR
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -572,7 +572,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Cat/CatPawBR
+    path: Model/Cat/CatPawBR
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -629,7 +629,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Cat/CatPawBR
+    path: Model/Cat/CatPawBR
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -686,7 +686,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Cat/CatPawFL
+    path: Model/Cat/CatPawFL
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -743,7 +743,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Cat/CatPawFL
+    path: Model/Cat/CatPawFL
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -800,7 +800,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Cat/CatPawFL
+    path: Model/Cat/CatPawFL
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -857,7 +857,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Cat/CatPawFR
+    path: Model/Cat/CatPawFR
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -914,7 +914,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Cat/CatPawFR
+    path: Model/Cat/CatPawFR
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -971,7 +971,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Cat/CatPawFR
+    path: Model/Cat/CatPawFR
     classID: 4
     script: {fileID: 0}
     flags: 0
