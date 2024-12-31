@@ -533,7 +533,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 6515d791d063d844b8831c03ab9ea8d6, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -1653,6 +1653,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5377188517543852743, guid: 6f74a6ab0f3f4074f8f62b22c4c93e1f, type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7868398976401762666, guid: 6f74a6ab0f3f4074f8f62b22c4c93e1f, type: 3}
       propertyPath: m_Name
       value: Resume Button
@@ -1675,6 +1679,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8853501533591835694}
     m_Modifications:
+    - target: {fileID: 165746826808162839, guid: 54b97bdc51b1c4245a9ddff5e5401444, type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 621916411209570237, guid: 54b97bdc51b1c4245a9ddff5e5401444, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -1944,6 +1952,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5377188517543852743, guid: 6f74a6ab0f3f4074f8f62b22c4c93e1f, type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7868398976401762666, guid: 6f74a6ab0f3f4074f8f62b22c4c93e1f, type: 3}
       propertyPath: m_Name
       value: OK Button
@@ -1966,6 +1978,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5882040474707947227}
     m_Modifications:
+    - target: {fileID: 165746826808162839, guid: 54b97bdc51b1c4245a9ddff5e5401444, type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 621916411209570237, guid: 54b97bdc51b1c4245a9ddff5e5401444, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
