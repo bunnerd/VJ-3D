@@ -811,7 +811,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinsText: {fileID: 128725365071208626}
   progressText: {fileID: 7550820545924070627}
-  currentLevel: 0
+  currentLevel: 1
 --- !u!1 &6535728898287990162
 GameObject:
   m_ObjectHideFlags: 0

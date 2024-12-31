@@ -4393,6 +4393,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 362922002}
+    - target: {fileID: 6790723424548308535, guid: d36728e958433df43bb65327f9894c45, type: 3}
+      propertyPath: currentLevel
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8414013379534684020, guid: d36728e958433df43bb65327f9894c45, type: 3}
       propertyPath: m_Name
       value: UI

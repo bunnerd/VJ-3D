@@ -15,6 +15,15 @@ public class GameUI : MonoBehaviour
 
     public int currentLevel;
 
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        SetLevel(currentLevel);
+        realCoins = PlayerPrefs.GetInt("coins", 0);
+        displayCoins = realCoins;
+        UpdateCoinDisplay();
+    }
+
     public void SetLevel(int level) 
     {
         currentLevel = level;
@@ -65,20 +74,5 @@ public class GameUI : MonoBehaviour
     private void UpdateCoinDisplay() 
     {
         coinsText.SetText(displayCoins.ToString());
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        SetLevel(currentLevel);
-        realCoins = PlayerPrefs.GetInt("coins", 0);
-        displayCoins = realCoins;
-		UpdateCoinDisplay();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
