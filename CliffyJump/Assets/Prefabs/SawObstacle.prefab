@@ -101,9 +101,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c6f4b1443fa83a4f90317e7ba26a7b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialOffset: 0
   offset: 0
   duration: 2
+  initialStopDuration: 0
   stopDuration: 0.5
+  isActive: 0
   rotationSpeed: 1000
   rotation: 0
 --- !u!1 &7561814368573493207
@@ -355,6 +358,12 @@ MonoBehaviour:
   startScale: 0
   endScale: 1
   duration: 0.4
+  invertX: 0
+  invertZ: 0
+  isDartBlock: 0
+  isSpikeTrap: 0
+  isSaw: 1
+  isHammer: 0
 --- !u!4 &2943738173640110470 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 37d325fa4eaee874a819e69d2500df7b, type: 3}

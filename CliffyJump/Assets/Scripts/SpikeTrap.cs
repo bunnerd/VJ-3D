@@ -12,24 +12,28 @@ public class SpikeTrap : MonoBehaviour
     private float startY;
     private float endY;
 
-    bool first = true;
     bool movedOnce = false;
     bool moving = false;
+    bool isActive = false;
+
+    Vector3 initialPos;
+
+	private void Awake()
+	{
+		initialPos = transform.position;
+	}
 
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
 	void Start()
     {
-        Init();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (first) 
-        {
-            first = false;
-			Init();
-		}
+        if (!isActive)
+            return;
 
         if (!movedOnce)
         {
@@ -52,14 +56,23 @@ public class SpikeTrap : MonoBehaviour
         }
     }
 
-    void Init() 
+    public void ResetObstacle()
     {
-		startY = transform.position.y;
+        isActive = false;
+        transform.position = initialPos;
+    }
+
+    public void Init() 
+    {
+		transform.position = initialPos;
+        //Debug.Log("Initial transform: " + initialTransform + ", pos:" + initialTransform.position + ", transform: " + transform + ", pos:" + transform.position);
+		startY = initialPos.y;
 		endY = startY + 2.0f;
 
 		movedOnce = false;
 		moving = false;
 		start = Time.time;
+        isActive = true;
 	}
 
     void StartMovement() 

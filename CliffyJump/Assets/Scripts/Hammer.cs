@@ -8,11 +8,18 @@ public class Hammer : MonoBehaviour
         CounterClockwise
     };
 
+    float initialYRotation;
+    bool isActive = false;
     public float rotationSpeed;
     public Direction direction;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+	private void Awake()
+	{
+        initialYRotation = transform.rotation.eulerAngles.y;
+	}
+
+	// Start is called once before the first execution of Update after the MonoBehaviour is created
+	void Start()
     {
         if (direction == Direction.CounterClockwise)
             rotationSpeed *= -1.0f;
@@ -21,6 +28,20 @@ public class Hammer : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (!isActive)
+            return;
+
         transform.Rotate(0.0f, rotationSpeed * Time.fixedDeltaTime, 0.0f);
+    }
+
+    public void Init()
+    {
+        isActive = true;
+    }
+
+    public void ResetObstacle() 
+    {
+        isActive = false;
+        transform.rotation = Quaternion.Euler(0.0f, initialYRotation, 0.0f);
     }
 }

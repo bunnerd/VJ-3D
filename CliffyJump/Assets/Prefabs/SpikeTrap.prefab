@@ -254,6 +254,10 @@ MonoBehaviour:
   duration: 0.4
   invertX: 0
   invertZ: 0
+  isDartBlock: 0
+  isSpikeTrap: 1
+  isSaw: 0
+  isHammer: 0
 --- !u!1001 &1086022390064277187
 PrefabInstance:
   m_ObjectHideFlags: 0

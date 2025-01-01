@@ -176,3 +176,7 @@ MonoBehaviour:
   duration: 0.4
   invertX: 0
   invertZ: 0
+  isDartBlock: 0
+  isSpikeTrap: 0
+  isSaw: 0
+  isHammer: 1

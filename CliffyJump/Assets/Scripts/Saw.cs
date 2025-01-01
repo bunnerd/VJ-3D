@@ -7,13 +7,16 @@ public class Saw : MonoBehaviour
 
     Vector3 startToEnd;
 
+    public float initialOffset;
     public float offset;
     public float duration;
+    public float initialStopDuration;
     public float stopDuration;
     float start;
 
     bool going = false;
     bool stopped = true;
+    public bool isActive = false;
 
 	public float rotationSpeed;
     public enum Rotation 
@@ -28,20 +31,42 @@ public class Saw : MonoBehaviour
         startPos = transform.position;
         endPos = transform.GetChild(0).position;
         startToEnd = endPos - startPos;
-        going = false;
 
-        float aux = stopDuration;
-        stopDuration = offset;
-        offset = aux;
+        initialOffset = offset;
+        initialStopDuration = stopDuration;
 
-        if (rotation == Rotation.Counterclockwise)
-            rotationSpeed *= -1;
+		if (rotation == Rotation.Counterclockwise)
+			rotationSpeed *= -1;
+	}
 
-        start = Time.time;
-    }
+	public void ResetObstacle()
+	{
+        isActive = false;
+		transform.position = startPos;
+	}
 
-    void FixedUpdate()
+    public void Init()
     {
+		going = false;
+        stopped = true;
+
+		offset = initialOffset;
+		stopDuration = initialStopDuration;
+        transform.position = startPos;
+
+		float aux = stopDuration;
+		stopDuration = offset;
+		offset = aux;
+
+		start = Time.time;
+		isActive = true;
+	}
+
+	void FixedUpdate()
+    {
+        if (!isActive)
+            return;
+
 		if (stopped)
 		{
             if (Time.time - start > stopDuration)

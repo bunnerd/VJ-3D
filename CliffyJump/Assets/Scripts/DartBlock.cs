@@ -42,6 +42,16 @@ public class DartBlock : MonoBehaviour
 		}
 	}
 
+	public void ResetObstacle()
+	{
+		init = false;
+		foreach (GameObject dart in darts)
+		{
+			dart.transform.position = transform.position;
+			dart.GetComponent<Dart>().isActive = false;
+		}
+	}
+
 	public void Init()
 	{
 		shotOnce = false;
@@ -91,11 +101,6 @@ public class DartBlock : MonoBehaviour
 		}
 
 		init = true;
-	}
-
-	public void Fini()
-	{
-		init = false;
 	}
 
 	void Shoot()

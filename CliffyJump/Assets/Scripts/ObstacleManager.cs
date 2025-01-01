@@ -15,9 +15,19 @@ public class ObstacleManager : MonoBehaviour
     public bool invertZ = false;
 
     public bool isDartBlock = false;
+    public bool isSpikeTrap = false;
+    public bool isSaw = false;
+    public bool isHammer = false;
 
     private float scaleX;
     private float scaleZ;
+
+    private Transform initialTransform;
+
+	private void Awake()
+	{
+		initialTransform = transform;
+	}
 
 	private void Start()
 	{
@@ -35,7 +45,7 @@ public class ObstacleManager : MonoBehaviour
 
     public IEnumerator LoadObstacle()
     {
-        float startTime = Time.time;
+		float startTime = Time.time;
 
         while (Time.time - startTime <= duration)
         {
@@ -48,6 +58,12 @@ public class ObstacleManager : MonoBehaviour
 
 		if (isDartBlock)
 			GetComponent<DartBlock>().Init();
+		else if (isSaw)
+			GetComponentInParent<Saw>().Init();
+        else if (isSpikeTrap)
+            GetComponent<SpikeTrap>().Init();
+		else if (isHammer)
+			GetComponent<Hammer>().Init();
 	}
 
 	public IEnumerator UnloadObstacle()
@@ -64,6 +80,12 @@ public class ObstacleManager : MonoBehaviour
 		transform.localScale = new Vector3(scaleX * startScale, startScale, scaleZ * startScale);
 
         if (isDartBlock)
-            GetComponent<DartBlock>().Fini();
+            GetComponent<DartBlock>().ResetObstacle();
+        else if (isSaw)
+            GetComponentInParent<Saw>().ResetObstacle();
+        else if (isSpikeTrap)
+            GetComponent<SpikeTrap>().ResetObstacle();
+        else if (isHammer)
+			GetComponent<Hammer>().ResetObstacle();
 	}
 }
