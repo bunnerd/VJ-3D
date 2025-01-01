@@ -22,26 +22,11 @@ public class ObstacleManager : MonoBehaviour
     private float scaleX;
     private float scaleZ;
 
-    private Transform initialTransform;
-
-	private void Awake()
-	{
-		initialTransform = transform;
-	}
-
 	private void Start()
 	{
         scaleX = invertX ? -1.0f : 1.0f;
         scaleZ = invertZ ? -1.0f : 1.0f;
 	}
-
-	private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            StartCoroutine(LoadObstacle());
-        }
-    }
 
     public IEnumerator LoadObstacle()
     {

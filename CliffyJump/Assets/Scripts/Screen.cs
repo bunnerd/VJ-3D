@@ -16,14 +16,6 @@ public class Screen : MonoBehaviour
 
     private List<GameObject> saws = new List<GameObject>();
 
-    void Update()
-    {
-        if (Input.GetKey(KeyCode.Alpha0))
-        {
-            StartCoroutine(LowerGround());
-        }
-    }
-
 	private void Start()
 	{
         // Get the coins

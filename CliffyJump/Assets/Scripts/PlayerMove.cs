@@ -72,11 +72,7 @@ public class PlayerMove : MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.P))
-		{
-			Debug.Log(transform.position - new Vector3(0.0f, transform.lossyScale.y / 2, 0.0f));
-		}
-		else if (Input.GetKeyDown(KeyCode.G)) 
+		if (Input.GetKeyDown(KeyCode.G)) 
 		{
 			godmode = !godmode;
 		}

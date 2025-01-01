@@ -24,6 +24,7 @@ public class NextScreen : MonoBehaviour
 			StartCoroutine(LoadScreen(loadedScreen + 1));
 	}
 
+	// Probably unused
 	public void LoadPrevScreen()
 	{
 		if (loadedScreen == 0)
@@ -68,20 +69,5 @@ public class NextScreen : MonoBehaviour
 			StartCoroutine(LoadScreen(startScreen));
 		else
 			StartCoroutine(LoadScreen(PlayerPrefs.GetInt("selectedScreen", startScreen)));
-	}
-
-    // Update is called once per frame
-    void Update()
-    {
-		if (Input.GetKeyDown(KeyCode.RightArrow)) 
-		{
-			player.GetComponent<PlayerMove>().FullStop();
-			LoadNextScreen();
-		}
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
-		{
-			player.GetComponent<PlayerMove>().FullStop();
-			LoadPrevScreen();
-		}
 	}
 }
