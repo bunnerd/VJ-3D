@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class NextScreen : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class NextScreen : MonoBehaviour
     public GameObject[] screens = new GameObject[10];
 	public GameObject entrance;
 	public int startScreen = 0;
+	public int nextLevel = -1;
 
 	private GameUI ui;
 
@@ -19,7 +21,17 @@ public class NextScreen : MonoBehaviour
 		if (loadedScreen == 9) 
 		{
 			// No more screens!
-		}
+			if (nextLevel == -1)
+			{
+                // No more levels!
+                SceneManager.LoadScene("Menu");
+            }
+			else
+			{
+                PlayerPrefs.SetInt("selectedScreen", 0);
+                SceneManager.LoadScene("Level" + nextLevel);
+            }
+        }
 		else
 			StartCoroutine(LoadScreen(loadedScreen + 1));
 	}

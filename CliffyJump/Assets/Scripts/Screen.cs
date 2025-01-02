@@ -8,6 +8,7 @@ public class Screen : MonoBehaviour
     public GameObject[] objects;
     public GameObject[] obstacles;
     public GameObject[] coins;
+    public GameObject[] decorations;
     public GameObject player;
 
     public float startHeight = -5.0f;
@@ -29,6 +30,18 @@ public class Screen : MonoBehaviour
 			}
 		}
         coins = tmp.ToArray();
+        
+        // Get the decorations
+		tmp = new List<GameObject>();
+		foreach (Transform child in GetComponentsInChildren<Transform>())
+		{
+            if (child.gameObject.CompareTag("Decoration"))
+            {
+                child.gameObject.SetActive(false);
+				tmp.Add(child.gameObject);
+			}
+		}
+        decorations = tmp.ToArray();
 	}
 
 	public void Load() 
@@ -121,6 +134,13 @@ public class Screen : MonoBehaviour
             coin.GetComponent<Coin>().Init();
 			StartCoroutine(coin.GetComponent<CoinLoader>().Load());
 		}
+        
+        foreach (GameObject decoration in decorations) 
+        {
+            //decoration.SetActive(true);
+            decoration.GetComponent<Decoration>().Init();
+			StartCoroutine(decoration.GetComponent<Decoration>().Load());
+		}
 
         // Special case for the saw obstacle
         foreach (GameObject saw in saws)
@@ -142,7 +162,12 @@ public class Screen : MonoBehaviour
 			StartCoroutine(coin.GetComponent<CoinLoader>().Unload());
 		}
 
-		foreach (GameObject obstacle in obstacles)
+        foreach (GameObject decoration in decorations)
+        {
+            StartCoroutine(decoration.GetComponent<Decoration>().Unload());
+        }
+
+        foreach (GameObject obstacle in obstacles)
 		{
 			StartCoroutine(obstacle.GetComponent<ObstacleManager>().UnloadObstacle());
 		}
