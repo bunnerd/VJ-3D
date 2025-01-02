@@ -15,18 +15,17 @@ public class GameUI : MonoBehaviour
 
     public int currentLevel;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        SetLevel(currentLevel);
+	// Start is called once before the first execution of Update after the MonoBehaviour is created
+	void Start()
+	{
+		SetLevel(currentLevel);
         realCoins = PlayerPrefs.GetInt("coins", 0);
         displayCoins = realCoins;
         UpdateCoinDisplay();
     }
 
-    public void SetLevel(int level) 
+	public void SetLevel(int level) 
     {
-        currentLevel = level;
         currentLevelMaxProgress = PlayerPrefs.GetInt("maxProgress" + level, 0);
 	}
 
@@ -37,7 +36,8 @@ public class GameUI : MonoBehaviour
 
     public void Progress(int progress) 
     {
-        currentProgress = progress;
+		currentLevelMaxProgress = PlayerPrefs.GetInt("maxProgress" + currentLevel, 0);
+		currentProgress = progress;
         if (progress > currentLevelMaxProgress) 
         {
             currentLevelMaxProgress = progress;
