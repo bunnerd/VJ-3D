@@ -41,6 +41,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7849153122663156764}
     m_Modifications:
+    - target: {fileID: 2040471195900283583, guid: 9945574e34291894c8eedd9df10ef747, type: 3}
+      propertyPath: playSound
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3033552712252858432, guid: 9945574e34291894c8eedd9df10ef747, type: 3}
       propertyPath: m_Center.z
       value: -5
