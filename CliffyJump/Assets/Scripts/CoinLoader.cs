@@ -21,19 +21,11 @@ public class CoinLoader : MonoBehaviour
 		scaleZ = invertZ ? -1.0f : 1.0f;
 	}
 
-	private void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.O))
-		{
-			StartCoroutine(Load());
-		}
-	}
-
 	public IEnumerator Load()
 	{
 		float startTime = Time.time;
-		float freq = GetComponentInChildren<RotateObject>().frequency;
-		GetComponentInChildren<RotateObject>().frequency /= 3.0f;
+		float freq = GetComponent<Coin>().rotationFrequency;
+		GetComponent<Coin>().rotationFrequency /= 3.0f;
 
 		while (Time.time - startTime <= duration)
 		{
@@ -43,7 +35,7 @@ public class CoinLoader : MonoBehaviour
 			yield return new WaitForEndOfFrame();
 		}
 		transform.localScale = new Vector3(scaleX * endScale, endScale, scaleZ * endScale);
-		GetComponentInChildren<RotateObject>().frequency = freq;
+		GetComponent<Coin>().rotationFrequency = freq;
 	}
 
 	public IEnumerator Unload()

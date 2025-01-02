@@ -8,15 +8,15 @@ public class Coin : MonoBehaviour
     private GameUI ui;
     private bool collected = false;
 
-    // Initialize the coin, making it collectable again
-    public void Init() 
-    {
-        collected = false;
-		transform.Find("Model").gameObject.SetActive(true);
-	}
+    // Coin rotation
+    // Only the model rotates, otherwise the particles would rotate too
+    public float rotationFrequency = 1.5f;
+
+    private Quaternion startRotation;
 
 	private void Start()
 	{
+        startRotation = transform.Find("Model").rotation;
         Init();
 		ui = GameObject.Find("UI").GetComponent<GameUI>();
         if (ui == null) 
@@ -25,7 +25,24 @@ public class Coin : MonoBehaviour
         }
 	}
 
-	private void OnTriggerEnter(Collider other)
+    private void Update()
+    {
+        if (!collected)
+        {
+            float angle = (360.0f * Time.deltaTime) / rotationFrequency;
+            transform.Find("Model").transform.Rotate(Vector3.up, angle, Space.Self);
+        }
+    }
+
+    // Initialize the coin, making it collectable again
+    public void Init() 
+    {
+        collected = false;
+		transform.Find("Model").gameObject.SetActive(true);
+        transform.Find("Model").transform.rotation = startRotation;
+    }
+
+    private void OnTriggerEnter(Collider other)
     {
         if (collected)
             return;
@@ -33,7 +50,7 @@ public class Coin : MonoBehaviour
         if (other.CompareTag("Player")) 
         {
             Collect();
-		}
+        }
     }
 
     private void Collect() 
