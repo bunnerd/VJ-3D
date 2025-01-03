@@ -277,7 +277,7 @@ public class PlayerMove : MonoBehaviour
 		transform.Find("DeathParticles").gameObject.GetComponent<ParticleSystem>().Play();
 		StartCoroutine(cameraShake.Shake(0.4f, 0.2f));
         GameObject activeTrail = FirstActiveChild(transform.Find("Trail"));
-        activeTrail.GetComponent<TrailRenderer>().emitting = false;
+        activeTrail.GetComponent<TrailRenderer>().enabled = false;
         yield return new WaitForSeconds(1.5f);
 
 		// Erase coin progress in this screen here
