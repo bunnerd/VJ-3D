@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 1.1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
@@ -1298,7 +1298,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6272880481092810710, guid: 2129d1fea4dfa5d43bfd87c9ba250c42, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 528.67017
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6272880481092810710, guid: 2129d1fea4dfa5d43bfd87c9ba250c42, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3868,10 +3868,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 7728599059028219832, guid: bf4d0cc57280fff4f8c8ef391923c7ef, type: 3}
-      propertyPath: frequency
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 8420257951849590390, guid: bf4d0cc57280fff4f8c8ef391923c7ef, type: 3}
       propertyPath: m_Name
       value: NyanCat
@@ -4154,10 +4150,6 @@ PrefabInstance:
     - target: {fileID: 219529397929199829, guid: c7fbf73427425b6428d95a485b40ad13, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7728599059028219832, guid: c7fbf73427425b6428d95a485b40ad13, type: 3}
-      propertyPath: frequency
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8420257951849590390, guid: c7fbf73427425b6428d95a485b40ad13, type: 3}
       propertyPath: m_Name
@@ -5296,7 +5288,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6272880481092810710, guid: 2129d1fea4dfa5d43bfd87c9ba250c42, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -528.67
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6272880481092810710, guid: 2129d1fea4dfa5d43bfd87c9ba250c42, type: 3}
       propertyPath: m_LocalPosition.y

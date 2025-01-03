@@ -27,7 +27,10 @@ public class UICharacterSelection : MonoBehaviour
         okButton.onClick.AddListener(SaveSelectedCharacter);
         numCharacters = charactersParent.transform.childCount;
 
-        lastX = charactersParent.GetComponent<RectTransform>().localPosition.x;
+        // Show the last selected character at center
+        charIndex = PlayerPrefs.GetInt("character", 0);
+        lastX = charactersParent.GetComponent<RectTransform>().localPosition.x - charactersParent.GetComponent<RectTransform>().sizeDelta.x * charIndex;
+        charactersParent.GetComponent<RectTransform>().localPosition = new Vector3(lastX, 0, 0);
     }
 
     private void Update()
