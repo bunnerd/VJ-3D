@@ -68,6 +68,8 @@ public class PlayerMove : MonoBehaviour
 		{
 			Debug.LogError("PlayerMove: UI component not found! Make sure there is an UI prefab object in the scene this Player is in");
 		}
+
+		GetComponent<Animator>().SetTrigger("move");
 	}
 
 	private void Update()
@@ -109,19 +111,19 @@ public class PlayerMove : MonoBehaviour
 	private IEnumerator TeleportHelper(Vector3 position) 
 	{
 		int counter = 0;
-		GameObject activeTrail = FirstActiveChild(transform.Find("Trail"));
+        GameObject activeTrail = FirstActiveChild(transform.Find("Trail"));
         activeTrail.GetComponent<TrailRenderer>().enabled = false;
 
-		while (++counter < 3) 
-		{
-			transform.position = position;
-			yield return new WaitForEndOfFrame();
-		}
-		teleporting = false;
+        while (++counter < 3)
+        {
+            transform.position = position;
+            yield return new WaitForEndOfFrame();
+        }
+        teleporting = false;
 
         activeTrail.GetComponent<TrailRenderer>().Clear();
         activeTrail.GetComponent<TrailRenderer>().enabled = true;
-	}
+    }
 
 	public void FullStop() 
 	{
@@ -274,7 +276,9 @@ public class PlayerMove : MonoBehaviour
 		transform.Find("Model").gameObject.SetActive(false);
 		transform.Find("DeathParticles").gameObject.GetComponent<ParticleSystem>().Play();
 		StartCoroutine(cameraShake.Shake(0.4f, 0.2f));
-		yield return new WaitForSeconds(1.5f);
+        GameObject activeTrail = FirstActiveChild(transform.Find("Trail"));
+        activeTrail.GetComponent<TrailRenderer>().emitting = false;
+        yield return new WaitForSeconds(1.5f);
 
 		// Erase coin progress in this screen here
 		ui.OnDeath();

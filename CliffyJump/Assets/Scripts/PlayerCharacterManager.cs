@@ -10,6 +10,8 @@ public class PlayerCharacterManager : MonoBehaviour
     {
         int charIndex = PlayerPrefs.GetInt("character", 0);
 
+        GetComponent<Animator>().SetInteger("charIndex", charIndex);
+
         // Disable all the other models and trails
         foreach (Transform model in transform.Find("Model"))
         {
