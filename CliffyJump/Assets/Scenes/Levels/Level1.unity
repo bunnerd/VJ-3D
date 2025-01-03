@@ -14589,6 +14589,7 @@ MonoBehaviour:
   coins: []
   decorations: []
   player: {fileID: 362922002}
+  specialTurnPoint: {fileID: 0}
   startHeight: -14
   endHeight: -8
   duration: 0.7
@@ -39354,6 +39355,7 @@ MonoBehaviour:
   coins: []
   decorations: []
   player: {fileID: 362922002}
+  specialTurnPoint: {fileID: 0}
   startHeight: -14
   endHeight: -8
   duration: 0.7
@@ -42151,6 +42153,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4803481708450401754, guid: e253f3c7585f0d14293197cc10fe0956, type: 3}
   m_PrefabInstance: {fileID: 593878125}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1197689522 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1294253372971602806, guid: e253f3c7585f0d14293197cc10fe0956, type: 3}
+  m_PrefabInstance: {fileID: 175938395}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1197881462 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5077349760110868902, guid: 51b5d4693eb3a084897f4faa2aa1affc, type: 3}
@@ -43317,6 +43324,7 @@ MonoBehaviour:
   coins: []
   decorations: []
   player: {fileID: 362922002}
+  specialTurnPoint: {fileID: 1197689522}
   startHeight: -14
   endHeight: -8
   duration: 0.7
@@ -43448,6 +43456,7 @@ MonoBehaviour:
   coins: []
   decorations: []
   player: {fileID: 0}
+  specialTurnPoint: {fileID: 0}
   startHeight: -14
   endHeight: -8
   duration: 0.7
@@ -46707,6 +46716,7 @@ MonoBehaviour:
   coins: []
   decorations: []
   player: {fileID: 362922002}
+  specialTurnPoint: {fileID: 0}
   startHeight: -14
   endHeight: -8
   duration: 0.7
@@ -47247,6 +47257,7 @@ MonoBehaviour:
   coins: []
   decorations: []
   player: {fileID: 362922002}
+  specialTurnPoint: {fileID: 0}
   startHeight: -14
   endHeight: -8
   duration: 0.7
@@ -48258,6 +48269,7 @@ MonoBehaviour:
   coins: []
   decorations: []
   player: {fileID: 362922002}
+  specialTurnPoint: {fileID: 0}
   startHeight: -14
   endHeight: -8
   duration: 0.7
@@ -57940,6 +57952,7 @@ MonoBehaviour:
   coins: []
   decorations: []
   player: {fileID: 362922002}
+  specialTurnPoint: {fileID: 0}
   startHeight: -14
   endHeight: -8
   duration: 0.7
@@ -75319,6 +75332,7 @@ MonoBehaviour:
   coins: []
   decorations: []
   player: {fileID: 362922002}
+  specialTurnPoint: {fileID: 0}
   startHeight: -14
   endHeight: -8
   duration: 0.7
@@ -75564,6 +75578,7 @@ MonoBehaviour:
   coins: []
   decorations: []
   player: {fileID: 362922002}
+  specialTurnPoint: {fileID: 0}
   startHeight: -14
   endHeight: -8
   duration: 0.7
@@ -76368,6 +76383,7 @@ MonoBehaviour:
   coins: []
   decorations: []
   player: {fileID: 362922002}
+  specialTurnPoint: {fileID: 0}
   startHeight: -14
   endHeight: -8
   duration: 0.7

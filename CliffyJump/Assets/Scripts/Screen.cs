@@ -11,6 +11,9 @@ public class Screen : MonoBehaviour
     public GameObject[] decorations;
     public GameObject player;
 
+    // Clear hack, avoid doing this
+    public GameObject specialTurnPoint = null;
+
     public float startHeight = -5.0f;
     public float endHeight = 2.0f;
     public float duration = 1.0f;
@@ -46,6 +49,9 @@ public class Screen : MonoBehaviour
 
 	public void Load() 
     {
+        if (specialTurnPoint)
+            specialTurnPoint.GetComponent<TurnPoint>().Restart();
+
         transform.gameObject.SetActive(true);
 		saws = new List<GameObject>();
 
