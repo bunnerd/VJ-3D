@@ -15,7 +15,7 @@ There are two levels, _Sakura_ and _Ruins_, with 10 screens each. The player con
 
 The game is intended to be played on PC, but since Cliffy Jump is a mobile game the controls are also compatible. Please mind that the mobile build can be buggy depending on the device and its existance is merely a coincidence. The game works best on PC.
 
-See [Releases]() for both Windows and Android builds.
+See [Releases](https://github.com/bunnerd/VJ-3D/releases) for both Windows and Android builds.
 
 #### Controls
 
