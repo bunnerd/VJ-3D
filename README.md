@@ -25,4 +25,18 @@ There are no more controls: use the buttons on the UI to navigate the game and f
 
 #### Credits
 
+**Mechanics, gameplay programming, level layouts**
+Jon Campillo
 
+**Art design, animations, models, effects, UI design & logic**
+Sandra Vázquez
+
+All assets are ours, except:
+
+**Music**
+
+[Loo_StrongerAlone_02.wav](https://freesound.org/s/323948/) by pLittleRobotSoundFactory
+[hallow hope (w/drums)](https://freesound.org/s/656920/) by smethng
+[鹤舞白沙.wav](https://freesound.org/s/582209/) by Amingliang
+
+As well as the image used for the clouds, which is from this [video tutorial](https://www.youtube.com/watch?v=UllkvfMR96s) and its corresponding [repository](https://github.com/etredal/FogTutorial) by etredal.
