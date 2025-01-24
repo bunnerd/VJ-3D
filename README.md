@@ -3,7 +3,7 @@
 
 *This video is not from an official source.
 
-***Insert image/GIF here***
+<img src="https://github.com/bunnerd/VJ-3D/blob/main/img/showcase.gif?raw=true" alt="GIF" width="99%" height="99%">
 
 [also a very simple showcase video](https://www.youtube.com/watch?v=kC9WLV39P-o)
 
