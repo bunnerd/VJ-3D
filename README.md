@@ -17,26 +17,28 @@ The game is intended to be played on PC, but since Cliffy Jump is a mobile game 
 
 See [Releases](https://github.com/bunnerd/VJ-3D/releases) for both Windows and Android builds.
 
-#### Controls
+### Controls
 
 On PC, you can **jump** either with the spacebar or with the mouse left click. With these the player moves when stopped on a stop sign too. On Android, it's just tapping anywhere on the screen.
 
 There are no more controls: use the buttons on the UI to navigate the game and figure out what is offers!
 
-#### Credits
+### Credits
 
-**Mechanics, gameplay programming, level layouts**
+<u>Mechanics, gameplay programming, level layouts</u>
+
 Jon Campillo
 
-**Art design, animations, models, effects, UI design & logic**
+<u>Art design, animations, models, effects, UI design & logic</u>
+
 Sandra Vázquez
 
 All assets are ours, except:
 
-**Music**
-
 [Loo_StrongerAlone_02.wav](https://freesound.org/s/323948/) by pLittleRobotSoundFactory
+
 [hallow hope (w/drums)](https://freesound.org/s/656920/) by smethng
+
 [鹤舞白沙.wav](https://freesound.org/s/582209/) by Amingliang
 
 As well as the image used for the clouds, which is from this [video tutorial](https://www.youtube.com/watch?v=UllkvfMR96s) and its corresponding [repository](https://github.com/etredal/FogTutorial) by etredal.
