@@ -25,13 +25,15 @@ There are no more controls: use the buttons on the UI to navigate the game and f
 
 ### Credits
 
-<u>Mechanics, gameplay programming, level layouts</u>
+Mechanics, gameplay programming, level layouts:
 
-Jon Campillo
+**Jon Campillo**
 
-<u>Art design, animations, models, effects, UI design & logic</u>
+Art design, animations, models, effects, UI design & logic:
 
-Sandra Vázquez
+**Sandra Vázquez**
+
+<br>
 
 All assets are ours, except:
 
